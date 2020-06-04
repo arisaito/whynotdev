@@ -1,0 +1,65 @@
+$pc: 1024px; // PC
+$tab: 680px; // タブレット
+$sp: 480px; // スマホ
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin ttl {
+  font-size: 18px;
+  color: $color_black;
+}
+
+@mixin txt {
+  font-size: 16px;
+  color: $color_black;
+}
+
+@mixin flex-pare {
+  display: flex;
+  justify-content: center;
+  // flex-wrap: wrap;
+  flex-direction: column;
+}
+
+@mixin inner-conts {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  @include sp {
+    padding-top: 20%;
+    padding-bottom: 20%;
+  }
+}
+
+@mixin transform-centering {
+  position: absolute;
+  left: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin cover-bg-img {
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+}
+
+@mixin fuwafuwa {
+  animation: fuwafuwa-anim ease-in-out 3s infinite;
+}
+
+@mixin wafuwafu {
+  animation: wafuwafu-anim ease-in-out 5s infinite;
+}

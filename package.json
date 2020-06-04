@@ -1,0 +1,26 @@
+{
+  "name": "whynot-online-dev",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/arisaito/whynotdev.git",
+  "author": "arisa ito <saharu54@live.jp>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  },
+  "scripts": {
+    "sass:dev": "node-sass -w src/scss/ -o build/static/css/ --output-style compressed",
+    "sass:prod": "node-sass src/scss/ -o build/static/css/ --output-style compressed",
+    "webpack:dev": "webpack-dev-server",
+    "webpack:prod": "webpack --mode=production",
+    "start": "yarn sass:dev & yarn webpack:dev",
+    "build": "yarn sass:prod & yarn webpack:prod"
+  }
+}
