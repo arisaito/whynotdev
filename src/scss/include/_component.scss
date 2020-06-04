@@ -1,34 +1,5 @@
-body {
-  background-color: $color_white;
-  font-family: $font_jp;
-  font-weight: 400;
-  overflow: hidden;
-  line-height: normal;
-}
-
-a {
-  outline: none;
-}
-
-img {
-  width: 100%;
-}
-
-a-scene {
-  z-index: 0;
-}
-
-*:focus {
-  outline: none;
-}
-
-input[type="text"],
-input[type="password"],
-button,
-textarea,
-select {
-  outline: none;
-}
+// .c-modal {
+// }
 
 .c-ttl {
   @include ttl;

@@ -13,6 +13,7 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "aframe": "^1.0.4",
     "node-sass": "^4.14.1"
   },
   "scripts": {

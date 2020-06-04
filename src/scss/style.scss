@@ -5,3 +5,34 @@
 @import "./include/component";
 @import "./include/header";
 @import "./include/pages";
+
+body {
+  background-color: $color_white;
+  font-family: $font_jp;
+  font-weight: 400;
+  overflow: hidden;
+  line-height: normal;
+}
+
+a {
+  outline: none;
+}
+
+img {
+  width: 100%;
+}
+
+a-scene {
+  z-index: 0;
+}
+
+*:focus {
+  outline: none;
+}
+a-scene {
+  z-index: -1;
+}
+
+.container {
+  z-index: 1;
+}

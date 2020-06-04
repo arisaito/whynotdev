@@ -17,7 +17,6 @@
     &__line {
       width: 43px;
       height: 2px;
-      background: $color_dark;
       position: absolute;
       transition: 0.3s;
       @include sp {
@@ -83,7 +82,6 @@
       letter-spacing: 0.1rem;
       a {
         text-decoration: none;
-        color: $color_dark;
         &:hover {
           text-decoration: underline overline;
         }
