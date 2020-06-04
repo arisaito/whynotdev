@@ -1,38 +1,97 @@
+@import "./node_modules/bootstrap/scss/bootstrap";
+
 @import "./include/function";
 @import "./include/mixin";
 @import "./include/reset";
 @import "./include/variable";
 @import "./include/component";
 @import "./include/header";
+@import "./include/footer";
 @import "./include/pages";
 
 body {
   background-color: $color_white;
   font-family: $font_jp;
-  font-weight: 400;
-  overflow: hidden;
   line-height: normal;
 }
 
 a {
+  color: $color_black;
   outline: none;
+  text-decoration: underline;
 }
 
 img {
   width: 100%;
 }
 
-a-scene {
-  z-index: 0;
-}
-
 *:focus {
   outline: none;
 }
 a-scene {
-  z-index: -1;
+  z-index: 0;
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+  background: $color_white;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  .c-ttl {
+    margin-top: -10px;
+    font-size: 3rem;
+    color: $color_black;
+    pointer-events: none;
+  }
+  &.js-up {
+    opacity: 0;
+    transition: 0.3s;
+  }
 }
 
 .container {
+  width: 80%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.work {
+  &__sec {
+    margin-bottom: 50px;
+  }
+  &__txt {
+    @include flex-pare;
+    margin: auto;
+    // justify-content: center;
+    // display: flex;
+    // flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.room-ui {
   z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  @include flex-pare;
+  &__room-name {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin: 30px auto;
+    color: $color_white;
+    font-weight: bold;
+  }
 }

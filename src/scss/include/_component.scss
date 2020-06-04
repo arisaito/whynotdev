@@ -3,6 +3,13 @@
 
 .c-ttl {
   @include ttl;
+  &--work {
+    font-size: 50px;
+    margin-bottom: 10px;
+    &-sub {
+      font-size: 20px;
+    }
+  }
   &--sub {
     font-size: 0.9rem;
     color: $color_black;
@@ -26,20 +33,17 @@
 .c-btn {
   cursor: pointer;
   margin: auto;
-  width: 160px;
   max-width: 200px;
   text-align: center;
-  display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.8rem 1rem;
   text-decoration: none;
-  background: $color_primary;
+  background: $color_black;
   color: $color_white;
   font-weight: bold;
   border-radius: 100px;
   &:hover {
-    color: $color_white;
     text-decoration: none;
-    background: $color_black;
+    background: $color_darkgray;
     transition: 0.5s;
   }
 }
