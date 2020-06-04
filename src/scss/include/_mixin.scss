@@ -19,7 +19,8 @@ $sp: 480px; // スマホ
 }
 
 @mixin ttl {
-  font-size: 18px;
+  // font-size: 18px;
+  font-size: 1.6rem;
   color: $color_black;
 }
 

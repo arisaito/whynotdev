@@ -4,10 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Towa TAKAYA / 001</title>
-    <script src="../../static/js/app.bundle.js"></script>
-    <link rel="stylesheet" href="../../static/css/style.css" /
+    <!-- <script src="../../static/js/app.bundle.js"></script> -->
+    <link rel="stylesheet" href="../../static/css/style.css" />
   </head>
   <body>
+    <div class="loading" id="loading">
+      <p class="c-ttl" id="loading-txt">
+        <i class="fa fa-spinner fa-pulse fa-fw"></i>
+      </p>
+    </div>
     <header class="header container">
       <div class="row">
         <div class="col-md-3 header-logo">
@@ -17,8 +22,10 @@
         </div>
         <nav class="header-nav col-md-9">
           <ul class="header-nav__inner">
-            <li class="header-nav__item">Artist</li>
-            <li class="header-nav__item">Works</li>
+            <li class="header-nav__item"><a href="">Online Gallery</a></li>
+            <li class="header-nav__item">
+              <a href="https://www.compath.city/whynot-artists">Artists</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -27,7 +34,7 @@
       <div class="container work__sec">
         <div class="row">
           <div class="col-md-7">
-            <div class="work__txt">
+            <div class="work__ttl">
               <h1 class="c-ttl--work">TITLE</h1>
               <p class="c-ttl--work-sub">Towa TAKAYA</p>
               <p class="c-ttl--work-sub">2020</p>

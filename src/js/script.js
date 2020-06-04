@@ -15,6 +15,8 @@ let loading;
 let loadingTxt;
 let cameraOuter;
 let cursorImg;
+let firstModal;
+let firstModalBtn;
 
 AFRAME.registerComponent("cursor-listener", {
   init: function () {
@@ -56,16 +58,44 @@ const hideLoading = () => {
   loading.classList.add("js-up");
 };
 
-const cameraSet = () => {
-  cameraOuter = document.getElementById("camera-outer");
-  cameraOuter.setAttribute("position", "0 0 0");
+// const cameraSet = () => {
+//   cameraOuter = document.getElementById("camera-outer");
+//   cameraOuter.setAttribute("position", "0 0 0");
+// };
+
+const firstModalClose = () => {
+  firstModal = document.getElementById("first-modal");
+  firstModalBtn = document.getElementById("first-modal-btn");
+  firstModalBtn.addEventListener("click", () => {
+    deviceOrien();
+    firstModal.classList.add("is-fadeout");
+  });
+};
+
+const deviceOrien = () => {
+  if (mobileFlag === true) {
+    if (
+      DeviceMotionEvent &&
+      DeviceMotionEvent.requestPermission &&
+      typeof DeviceMotionEvent.requestPermission === "function"
+    ) {
+      DeviceMotionEvent.requestPermission();
+    }
+    if (
+      DeviceOrientationEvent &&
+      DeviceOrientationEvent.requestPermission &&
+      typeof DeviceOrientationEvent.requestPermission === "function"
+    ) {
+      DeviceOrientationEvent.requestPermission();
+    }
+  }
 };
 
 window.onload = () => {
   initDevice();
   hideLoading();
-  cameraSet();
-  collider01 = document.getElementById("collider01");
+  firstModalClose();
+  //   collider01 = document.getElementById("collider01");
   //   bg = document.getElementById("360bg");
   //   en = document.getElementById("en01");
   //   collider = document.getElementById("collider01");
