@@ -88,6 +88,21 @@ a-modal {
   width: 100%;
   height: 100%;
   @include flex-pare;
+  .room__first-modal {
+    .c-modal__logo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200px;
+    }
+    &__tuto-img {
+      width: 200px;
+      margin: 30px auto;
+    }
+    .c-btn {
+      margin: 30px auto;
+    }
+  }
   &__room-name {
     position: fixed;
     bottom: 0;
