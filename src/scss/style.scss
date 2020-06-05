@@ -90,9 +90,8 @@ a-modal {
   @include flex-pare;
   .room__first-modal {
     .c-modal__logo {
-      position: fixed;
+      position: absolute;
       top: 0;
-      left: 0;
       width: 200px;
     }
     &__tuto-img {

@@ -28,9 +28,15 @@ AFRAME.registerComponent("cursor-listener", {
     this.el.addEventListener("mouseenter", function (e) {
       console.log("mouseenter");
       cursorImg.setAttribute("scale", "0.1 0.1 0.1");
+      cursorImg.setAttribute(
+        "animation",
+        "property: opacity; from: 1.0; to: 0.0; dur: 500; loop: true; easing: linear; dir: alternate"
+      );
     });
     this.el.addEventListener("mouseleave", function (e) {
       cursorImg.setAttribute("scale", "0.07 0.07 0.07");
+      cursorImg.removeAttribute("animation");
+      cursorImg.setAttribute("opacity", 1.0);
     });
   },
 });
@@ -57,11 +63,6 @@ const hideLoading = () => {
   loadingTxt.style.display = "none";
   loading.classList.add("js-up");
 };
-
-// const cameraSet = () => {
-//   cameraOuter = document.getElementById("camera-outer");
-//   cameraOuter.setAttribute("position", "0 0 0");
-// };
 
 const firstModalClose = () => {
   firstModal = document.getElementById("first-modal");
