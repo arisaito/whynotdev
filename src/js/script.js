@@ -13,10 +13,19 @@ let windowWidth;
 let windowHeight;
 let loading;
 let loadingTxt;
-let cameraOuter;
 let cursorImg;
 let firstModal;
 let firstModalBtn;
+
+let hamburger;
+let hamburgerLine;
+let hamburgerFlag = false;
+let navContent;
+let navContentLink;
+let sequential;
+let usageLink;
+let usage;
+let usageFlag = false;
 
 AFRAME.registerComponent("cursor-listener", {
   init: function () {
@@ -92,10 +101,75 @@ const deviceOrien = () => {
   }
 };
 
+const hamburgerController = () => {
+  hamburger = document.getElementById("hamburger");
+  hamburgerLine = document.querySelectorAll(".c-hamburger__line");
+  navContent = document.getElementById("ham-nav");
+  navContentLink = document.querySelectorAll(".ham-nav__item");
+  sequential = document.querySelectorAll(".is-sequential");
+  usageLink = document.getElementById("usage-link");
+  usage = document.getElementById("usage");
+  console.log(navContentLink);
+
+  hamburger.addEventListener("click", () => {
+    if (hamburgerFlag === false) {
+      navContent.classList.remove("is-hidden");
+      hamburgerFlag = true;
+      hamburgerLine.forEach((el, i) => {
+        el.classList.add("is-active");
+      });
+      sequential.forEach((el) => {
+        el.classList.add("is-scrollin");
+      });
+    } else if (usageFlag === true) {
+      navContent.classList.add("is-hidden");
+      usage.classList.add("is-hidden");
+      hamburgerFlag = false;
+      hamburgerLine.forEach((el, i) => {
+        el.classList.remove("is-active");
+      });
+      sequential.forEach((el) => {
+        el.classList.remove("is-scrollin");
+      });
+    } else {
+      navContent.classList.add("is-hidden");
+      hamburgerFlag = false;
+      hamburgerLine.forEach((el, i) => {
+        el.classList.remove("is-active");
+      });
+      sequential.forEach((el) => {
+        el.classList.remove("is-scrollin");
+      });
+    }
+  });
+
+  navContentLink.forEach((ele, i) => {
+    ele.addEventListener("click", () => {
+      if (hamburgerFlag === true) {
+        hamburgerFlag = false;
+        navContent.classList.add("is-hidden");
+        hamburgerLine.forEach((el, i) => {
+          el.classList.remove("is-active");
+        });
+      }
+      if (i === 3) {
+        usageFlag = true;
+        console.log("hi");
+        usage.classList.remove("is-hidden");
+        hamburgerFlag = true;
+        hamburgerLine.forEach((el, i) => {
+          el.classList.add("is-active");
+        });
+      }
+    });
+  });
+};
+
 window.onload = () => {
   initDevice();
   hideLoading();
   firstModalClose();
+  hamburgerController();
   //   collider01 = document.getElementById("collider01");
   //   bg = document.getElementById("360bg");
   //   en = document.getElementById("en01");

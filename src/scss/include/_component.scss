@@ -79,3 +79,121 @@
     pointer-events: none;
   }
 }
+
+.c-ham {
+  .c-hamburger {
+    position: fixed;
+    top: 0;
+    right: 0rem;
+    height: 80px;
+    width: 80px;
+    background: $color_black;
+    pointer-events: auto;
+    cursor: pointer;
+    &__line {
+      background: $color_white;
+      width: 43px;
+      height: 2px;
+      position: absolute;
+      transition: 0.3s;
+      @include sp {
+        width: 38px;
+        height: 2px;
+      }
+      &:nth-child(1) {
+        top: 1.4rem;
+        right: 1.1rem;
+        &.is-active {
+          -webkit-transform: translateY(14px) rotate(-45deg);
+          transform: translateY(14px) rotate(-45deg);
+        }
+      }
+      &:nth-child(2) {
+        top: 2.25rem;
+        right: 1.1rem;
+        &.is-active {
+          opacity: 0;
+          transition: 0.3s;
+        }
+      }
+      &:nth-child(3) {
+        top: 3.1rem;
+        right: 1.1rem;
+        &.is-active {
+          -webkit-transform: translateY(-14px) rotate(45deg);
+          transform: translateY(-14px) rotate(45deg);
+        }
+      }
+    }
+    .usage {
+      &.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+  .ham-nav {
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $color_white;
+    z-index: -1;
+    transition: 0.4s;
+    pointer-events: auto;
+    @include flex-pare;
+    align-items: center;
+    &.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    &-header {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      margin: 30px auto;
+    }
+    &__inner {
+      margin: auto;
+      text-align: center;
+    }
+    &__item {
+      margin: 23px 0;
+      font-size: 1.7rem;
+      letter-spacing: 0.1rem;
+      a {
+        text-emphasis: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .usage-link {
+      cursor: pointer;
+      &hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .usage {
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $color_white;
+    z-index: -1;
+    pointer-events: auto;
+    @include flex-pare;
+    align-items: center;
+    &.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
