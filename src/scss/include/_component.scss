@@ -90,6 +90,10 @@
     background: $color_black;
     pointer-events: auto;
     cursor: pointer;
+    @include sp {
+      width: 70px;
+      height: 70px;
+    }
     &__line {
       background: $color_white;
       width: 43px;
@@ -151,11 +155,12 @@
     }
     &-header {
       position: fixed;
-      top: 0;
+      top: 10%;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
       margin: 30px auto;
+      width: 100%;
     }
     &__inner {
       margin: auto;

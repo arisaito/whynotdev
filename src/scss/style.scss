@@ -65,6 +65,9 @@ a-modal {
   width: 80%;
   max-width: 900px;
   margin: auto;
+  @include sp {
+    width: auto;
+  }
 }
 
 .work {
@@ -95,11 +98,15 @@ a-modal {
     .c-modal__logo {
       position: absolute;
       top: 0;
-      width: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      margin: 50px 0;
     }
     &__tuto-img {
-      width: 200px;
+      width: 100%;
       margin: 30px auto;
+      max-width: 800px;
     }
     .c-btn {
       margin: 30px auto;
@@ -112,8 +119,24 @@ a-modal {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    margin: 30px auto;
-    color: $color_white;
     font-weight: bold;
+    background: $color_black;
+    padding: 10px 20px;
+    width: 100%;
+    pointer-events: auto;
+    color: $color_white;
+    vertical-align: middle;
+    svg {
+      width: 3rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: inline;
+      margin: 0 15px;
+    }
+    .c-txt {
+      color: $color_white;
+      display: inline;
+      vertical-align: top;
+    }
   }
 }
