@@ -19,6 +19,10 @@ let collider05;
 let ring1;
 let ringScene1to2;
 let ringScene1to3;
+let ringScene = [];
+let ringSceneBox1to2;
+let ringSceneBox1to3;
+let ringBox = [];
 let bg1;
 let bg2;
 let bg3;
@@ -52,6 +56,28 @@ AFRAME.registerComponent("cursor-listener", {
     this.el.addEventListener("click", clickEvent);
   },
 });
+AFRAME.registerComponent("cursor-listener-scene", {
+  init: function () {
+    cursorImg = document.getElementById("cursor-img");
+    ring1 = document.getElementById("ring1");
+
+    ringScene1to2 = document.getElementById("ring-scene-1to2");
+    ringScene1to3 = document.getElementById("ring-scene-1to3");
+    ringScene.push(ringScene1to2, ringScene1to3);
+
+    ringSceneBox1to2 = document.getElementById("ring-scene-box-1to2");
+    ringSceneBox1to3 = document.getElementById("ring-scene-box-1to3");
+    ringBox.push(ringSceneBox1to2, ringSceneBox1to3);
+
+    this.el.addEventListener("mouseenter", mouseEnter);
+    this.el.addEventListener("mouseleave", mouseLeave);
+    ringScene.forEach((el) => {
+      el.addEventListener("click", sceneSwitch, false);
+    });
+    // ringScene1to2.addEventListener("click", sceneSwitch, false);
+    // ringScene1to3.addEventListener("click", sceneSwitch, false);
+  },
+});
 
 const mouseEnter = () => {
   console.log("mouseenter");
@@ -68,11 +94,55 @@ const mouseLeave = () => {
   cursorImg.setAttribute("opacity", 1.0);
 };
 
-const clickEvent = () => {
+const clickEvent = (e) => {
   colliderScene1 = document.querySelectorAll(".collider-scene1");
-  console.log(this);
+  console.log(e.target);
   console.log("collider");
   console.log("click");
+};
+
+const sceneSwitch = (e) => {
+  let ringTarget = e.target;
+
+  if (ringTarget === ringBox[0]) {
+    sceneManager(1, 2);
+  } else if (ringTarget === ringBox[1]) {
+    sceneManager(1, 3);
+  }
+};
+
+const sceneManager = (fir, nex) => {
+  bg1 = document.getElementById("bg1");
+  bg2 = document.getElementById("bg2");
+  console.log("sceneManager");
+  if (fir === 1) {
+    colliderScene1.forEach((el) => {
+      el.removeAttribute("cursor-listener");
+      el.removeEventListener("mouseenter", mouseEnter);
+      el.removeEventListener("click", clickEvent);
+      mouseLeave();
+    });
+    ringScene.forEach((el) => {
+      el.removeAttribute("cursor-listener-scene");
+      el.removeEventListener("mouseenter", mouseEnter);
+      el.removeEventListener("click", sceneSwitch, false);
+    });
+    bg1.setAttribute("mixin", "fadeout");
+    ring1.setAttribute("mixin", "out");
+    // ringScene1to2.removeEventListener
+    // ringScene1to3.removeEventListener("click", sceneSwitch, false);
+  } else if (fir === 2) {
+    console.log("2から");
+  } else if (fir === 3) {
+    console.log("3から");
+  }
+  if (nex === 2) {
+    console.log("scene2");
+    bg2.setAttribute("mixin", "fadein");
+  }
+  if (nex === 3) {
+    console.log("scene3");
+  }
 };
 
 const initDevice = () => {
@@ -190,39 +260,9 @@ const hamburgerController = () => {
   });
 };
 
-const sceneController = () => {
-  ring1 = document.getElementById("ring1");
-  ringScene1to2 = document.getElementById("ring-scene-1to2");
-  ringScene1to3 = document.getElementById("ring-scene-1to3");
-  bg1 = document.getElementById("bg1");
-  bg2 = document.getElementById("bg2");
-  ringScene1to2.addEventListener("click", ringScene1to2Click);
-  ringScene1to3.addEventListener("click", ringScene1to3Click);
-};
-
-const ringScene1to2Click = () => {
-  console.log("scene2");
-  colliderScene1.forEach((el) => {
-    el.removeAttribute("cursor-listener");
-    el.removeEventListener("mouseenter", mouseEnter);
-    el.removeEventListener("click", clickEvent);
-    mouseLeave();
-  });
-  bg1.setAttribute("mixin", "fadeout");
-  bg2.setAttribute("mixin", "fadein");
-  ring1.setAttribute("mixin", "out");
-  ringScene1to2.removeEventListener("click", ringScene1to2Click);
-  ringScene1to3.removeEventListener("click", ringScene1to3Click);
-};
-
-const ringScene1to3Click = () => {
-  console.log("scene3");
-};
-
 window.onload = () => {
   initDevice();
   hideLoading();
   firstModalClose();
   hamburgerController();
-  sceneController();
 };
