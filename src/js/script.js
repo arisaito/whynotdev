@@ -7,19 +7,31 @@ import "@fortawesome/fontawesome-free-solid";
 
 let mobileFlag = false;
 let colliderScene1 = [];
+let colliderScene1Id = [];
 let colliderScene2 = [];
 let colliderScene3 = [];
-let collider01;
-let collider02;
-let collider03;
-let collider04;
-let collider05;
-// let collider06;
-// let collider07;
+
 let ring1;
 let ringScene1to2;
 let ringScene1to3;
-let ringScene = [];
+let ringScene1 = [];
+let scene1Obj;
+let scene1ObjConts;
+
+let ring2;
+let ringScene2to1;
+let ringScene2to3;
+let ringScene2 = [];
+let scene2Obj;
+let scene2ObjConts;
+
+let ring3;
+let ringScene3to1;
+let ringScene3to2;
+let ringScene3 = [];
+let scene3Obj;
+let scene3ObjConts;
+
 let ringSceneBox1to2;
 let ringSceneBox1to3;
 let ringBox = [];
@@ -35,6 +47,11 @@ let cursorImg;
 let firstModal;
 let firstModalBtn;
 
+let navUsage;
+let navUsageLink;
+let navUsageClose;
+let navUsageBg;
+
 let hamburger;
 let hamburgerLine;
 let hamburgerFlag = false;
@@ -48,40 +65,44 @@ let usageFlag = false;
 AFRAME.registerComponent("cursor-listener", {
   init: function () {
     cursorImg = document.getElementById("cursor-img");
-    // this.el.addEventListener("click", function (evt) {
-    //   // location.href = "../works/towatakaya/001.html";
-    // });
-    this.el.addEventListener("mouseenter", mouseEnter);
-    this.el.addEventListener("mouseleave", mouseLeave);
-    this.el.addEventListener("click", clickEvent);
+    colliderScene1 = document.querySelectorAll(".collider-scene1");
+
+    colliderScene1.forEach((el) => {
+      el.addEventListener("mouseenter", mouseEnter, false);
+      el.addEventListener("mouseleave", mouseLeave, false);
+      el.addEventListener("click", clickEvent, false);
+    });
   },
 });
 AFRAME.registerComponent("cursor-listener-scene", {
   init: function () {
     cursorImg = document.getElementById("cursor-img");
     ring1 = document.getElementById("ring1");
+    ring2 = document.getElementById("ring2");
 
     ringScene1to2 = document.getElementById("ring-scene-1to2");
     ringScene1to3 = document.getElementById("ring-scene-1to3");
-    ringScene.push(ringScene1to2, ringScene1to3);
+    ringScene1.push(ringScene1to2, ringScene1to3);
+
+    ringScene2to1 = document.getElementById("ring-scene-2to1");
+    ringScene2to3 = document.getElementById("ring-scene-2to3");
+    ringScene2.push(ringScene2to1, ringScene2to3);
 
     ringSceneBox1to2 = document.getElementById("ring-scene-box-1to2");
     ringSceneBox1to3 = document.getElementById("ring-scene-box-1to3");
     ringBox.push(ringSceneBox1to2, ringSceneBox1to3);
 
-    this.el.addEventListener("mouseenter", mouseEnter);
-    this.el.addEventListener("mouseleave", mouseLeave);
-    ringScene.forEach((el) => {
+    ringScene1.forEach((el) => {
+      el.addEventListener("mouseenter", mouseEnter, false);
+      el.addEventListener("mouseleave", mouseLeave, false);
       el.addEventListener("click", sceneSwitch, false);
     });
-    // ringScene1to2.addEventListener("click", sceneSwitch, false);
-    // ringScene1to3.addEventListener("click", sceneSwitch, false);
   },
 });
 
-const mouseEnter = () => {
-  console.log("mouseenter");
-  cursorImg.setAttribute("scale", "0.1 0.1 0.1");
+const mouseEnter = (e) => {
+  console.log("mouseenter - " + e.target.id);
+  cursorImg.setAttribute("scale", "0.09 0.09 0.09");
   cursorImg.setAttribute(
     "animation",
     "property: opacity; from: 1.0; to: 0.0; dur: 500; loop: true; easing: linear; dir: alternate"
@@ -95,15 +116,23 @@ const mouseLeave = () => {
 };
 
 const clickEvent = (e) => {
-  colliderScene1 = document.querySelectorAll(".collider-scene1");
-  console.log(e.target);
-  console.log("collider");
+  console.log(e.target.id);
   console.log("click");
+  if (e.target.id === colliderScene1[0].id) {
+    window.open("../../works/towatakaya/001.html", "_blank");
+  } else if (e.target.id === colliderScene1[1].id) {
+    window.open("../../works/moemitakano/001.html", "_blank");
+  } else if (e.target.id === colliderScene1[2].id) {
+    window.open("../../works/towatakaya/002.html", "_blank");
+  } else if (e.target.id === colliderScene1[3].id) {
+    window.open("../../works/moemitakano/002.html", "_blank");
+  } else if (e.target.id === colliderScene1[4].id) {
+    window.open("../../works/moemitakano/003.html", "_blank");
+  }
 };
 
 const sceneSwitch = (e) => {
   let ringTarget = e.target;
-
   if (ringTarget === ringBox[0]) {
     sceneManager(1, 2);
   } else if (ringTarget === ringBox[1]) {
@@ -111,37 +140,83 @@ const sceneSwitch = (e) => {
   }
 };
 
+const SceneReady1 = () => {
+  scene1ObjConts = "";
+  scene1Obj = document.getElementById("scene1-obj");
+};
+
+const SceneReady2 = () => {
+  scene2ObjConts = "";
+  scene2Obj = document.getElementById("scene2-obj");
+};
+
 const sceneManager = (fir, nex) => {
   bg1 = document.getElementById("bg1");
   bg2 = document.getElementById("bg2");
-  console.log("sceneManager");
+  bg3 = document.getElementById("bg3");
+
+  mouseLeave();
   if (fir === 1) {
     colliderScene1.forEach((el) => {
       el.removeAttribute("cursor-listener");
-      el.removeEventListener("mouseenter", mouseEnter);
-      el.removeEventListener("click", clickEvent);
+      el.removeEventListener("mouseenter", mouseEnter, false);
+      el.removeEventListener("click", clickEvent, false);
       mouseLeave();
     });
-    ringScene.forEach((el) => {
+    ringScene1.forEach((el) => {
       el.removeAttribute("cursor-listener-scene");
-      el.removeEventListener("mouseenter", mouseEnter);
+      el.removeEventListener("mouseenter", mouseEnter, false);
       el.removeEventListener("click", sceneSwitch, false);
     });
     bg1.setAttribute("mixin", "fadeout");
     ring1.setAttribute("mixin", "out");
-    // ringScene1to2.removeEventListener
-    // ringScene1to3.removeEventListener("click", sceneSwitch, false);
   } else if (fir === 2) {
     console.log("2から");
+    // colliderScene2.forEach((el) => {
+    //   el.removeAttribute("cursor-listener");
+    //   el.removeEventListener("mouseenter", mouseEnter, false);
+    //   el.removeEventListener("click", clickEvent, false);
+    //   mouseLeave();
+    // });
+    ringScene2.forEach((el) => {
+      el.removeAttribute("cursor-listener-scene");
+      el.removeEventListener("mouseenter", mouseEnter, false);
+      el.removeEventListener("click", sceneSwitch, false);
+    });
+    bg1.setAttribute("mixin", "fadeout");
+    ring2.setAttribute("mixin", "out");
   } else if (fir === 3) {
     console.log("3から");
+  }
+  if (nex === 1) {
+    console.log("scene1");
+    bg1.setAttribute("mixin", "fadein");
+    ring1.setAttribute("mixin", "in");
+    ringScene1.forEach((el) => {
+      el.addEventListener("mouseenter", mouseEnter, false);
+      el.addEventListener("mouseleave", mouseLeave, false);
+      el.addEventListener("click", sceneSwitch, false);
+    });
   }
   if (nex === 2) {
     console.log("scene2");
     bg2.setAttribute("mixin", "fadein");
+    ring2.setAttribute("mixin", "in");
+    ringScene2.forEach((el) => {
+      el.addEventListener("mouseenter", mouseEnter, false);
+      el.addEventListener("mouseleave", mouseLeave, false);
+      el.addEventListener("click", sceneSwitch, false);
+    });
   }
   if (nex === 3) {
     console.log("scene3");
+    bg3.setAttribute("mixin", "fadein");
+    // ring3.setAttribute("mixin", "in");
+    // ringScene3.forEach((el) => {
+    //   el.addEventListener("mouseenter", mouseEnter, false);
+    //   el.addEventListener("mouseleave", mouseLeave, false);
+    //   el.addEventListener("click", sceneSwitch, false);
+    // });
   }
 };
 
@@ -196,6 +271,22 @@ const deviceOrien = () => {
   }
 };
 
+const navUsageController = () => {
+  navUsage = document.getElementById("c-nav__usage");
+  navUsageLink = document.getElementById("c-nav__usage-link");
+  navUsageClose = document.getElementById("c-nav__usage__close");
+  navUsageBg = document.getElementById("c-nav__usage__bg");
+  navUsageLink.addEventListener("click", () => {
+    navUsage.classList.remove("is-hidden");
+  });
+  navUsageClose.addEventListener("click", () => {
+    navUsage.classList.add("is-hidden");
+  });
+  navUsageBg.addEventListener("click", () => {
+    navUsage.classList.add("is-hidden");
+  });
+};
+
 const hamburgerController = () => {
   hamburger = document.getElementById("hamburger");
   hamburgerLine = document.querySelectorAll(".c-hamburger__line");
@@ -204,7 +295,6 @@ const hamburgerController = () => {
   sequential = document.querySelectorAll(".is-sequential");
   usageLink = document.getElementById("usage-link");
   usage = document.getElementById("usage");
-  console.log(navContentLink);
 
   hamburger.addEventListener("click", () => {
     if (hamburgerFlag === false) {
@@ -264,5 +354,6 @@ window.onload = () => {
   initDevice();
   hideLoading();
   firstModalClose();
+  navUsageController();
   hamburgerController();
 };
