@@ -42,7 +42,6 @@
   &__work {
     margin-top: 50px;
     &__sec {
-      // margin-bottom: 20px;
     }
     &__img {
       margin: 0 auto 50px;
@@ -60,12 +59,15 @@
       height: 100%;
     }
     &__des {
-      a {
-        text-decoration: underline;
-      }
+      // a {
+      //   text-decoration: underline;
+      // }
     }
     &__others {
       padding-top: 50px;
+    }
+    .c-btn {
+      margin-bottom: 70px;
     }
   }
   &__footer {
@@ -74,37 +76,4 @@
     text-align: center;
     margin-top: 50px;
   }
-  // &__inner {
-  //   padding: 5% 0 0;
-  //   width: 90%;
-  //   max-width: 1000px;
-  //   margin: auto;
-  //   @include flex-pare;
-  // }
-  // &__img {
-  //   margin: auto;
-  //   width: 100%;
-  // }
-  // .c-txt {
-  //   padding: 0 30px;
-  // }
-  // .sub-img {
-  //   margin: 50px auto;
-  //   img {
-  //     margin: 10px auto;
-  //     width: 100%;
-  //     height: 100%;
-  //   }
-  // }
-  // .banner {
-  //   cursor: pointer;
-  // }
-  // .c-btn {
-  //   margin: 70px auto 40px;
-  //   i {
-  //     font-size: 1.5rem;
-  //     transform: translateY(3px);
-  //     margin-right: 10px;
-  //   }
-  // }
 }

@@ -84,6 +84,9 @@ a-scene {
     .c-modal__logo {
       width: 163px;
       margin-top: 40px;
+      @include sp {
+        margin: auto;
+      }
     }
     &__tuto-img {
       width: 100%;

@@ -119,15 +119,15 @@ const clickEvent = (e) => {
   console.log(e.target.id);
   console.log("click");
   if (e.target.id === colliderScene1[0].id) {
-    window.open("../../works/towatakaya/001.html", "_blank");
+    location.href = "../../works/towatakaya/001.html";
   } else if (e.target.id === colliderScene1[1].id) {
-    window.open("../../works/moemitakano/001.html", "_blank");
+    location.href = "../../works/moemitakano/001.html";
   } else if (e.target.id === colliderScene1[2].id) {
-    window.open("../../works/towatakaya/002.html", "_blank");
+    location.href = "../../works/towatakaya/002.html";
   } else if (e.target.id === colliderScene1[3].id) {
-    window.open("../../works/moemitakano/002.html", "_blank");
+    location.href = "../../works/moemitakano/002.html";
   } else if (e.target.id === colliderScene1[4].id) {
-    window.open("../../works/moemitakano/003.html", "_blank");
+    location.href = "../../works/moemitakano/003.html";
   }
 };
 
