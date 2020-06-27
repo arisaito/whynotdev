@@ -273,6 +273,7 @@
     background: $color_white;
     z-index: 2;
     pointer-events: auto;
+    padding: 20px;
     @include flex-pare;
     align-items: center;
     &.is-hidden {
