@@ -41,7 +41,13 @@
   }
   &__work {
     margin-top: 50px;
-    &__sec {
+    &__des {
+      a {
+        text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
     &__img {
       margin: 0 auto 50px;

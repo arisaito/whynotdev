@@ -9,6 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../../static/css/style.css" />
   </head>
   <body>
@@ -35,6 +39,13 @@
           </p>
 
           <div class="c-btn" id="first-modal-btn">ENTER</div>
+
+          <div class="c-txt">
+            推奨機種・ブラウザ<br />
+            PC：Chrome <br />
+            スマートフォン：iPhone iOS13以上 / android chrome
+          </div>
+          <br />
           <div class="c-modal__footer">
             © 2020 Why not?
           </div>
@@ -44,6 +55,9 @@
         <ul class="c-nav__inner">
           <li class="c-nav__item">
             <a href="./001.html">Top</a>
+          </li>
+          <li class="c-nav__item is-sequential">
+            <a href="https://www.compath.city/">Gallery</a>
           </li>
           <li class="c-nav__item is-sequential">
             <a href="001statement.html">Statement</a>
@@ -66,11 +80,18 @@
             </div>
             <h1 class="c-ttl ham-nav-header">使い方</h1>
             <div class="c-nav__usage__img">
-              <img src="../../static/image/001/top.png" alt="写真" />
+              <img src="../../static/image/usage/usage1.png" alt="写真" />
             </div>
             <p class="c-txt">
-              オンラインビューイングでは360度画像で展示風景をご覧いただけます。<br />
+              このオンラインビューイングでは、360度画像で展示風景をご覧いただけます。<br /><br />
               中央に虫眼鏡のカーソルが表示されますので、そのカーソルを作品に合わせてクリックすると作品の詳細ページへ行くことができます。
+            </p>
+            <br />
+            <div class="c-nav__usage__img">
+              <img src="../../static/image/usage/usage2.png" alt="写真" />
+            </div>
+            <p class="c-txt">
+              作品に虫眼鏡カーソルが当たると点滅します。
             </p>
           </div>
         </div>
@@ -118,31 +139,31 @@
         </div>
       </div>
       <div class="room-ui__room-name">
-        <i class="fas fa-caret-left"></i>
-        <p class="c-txt">
-          SCENE　1 / 3
+        <!-- <i class="fas fa-caret-left"></i> -->
+        <p class="c-txt" id="room-ui__room-name">
+          Scene　1 / 3
         </p>
-        <i class="fas fa-caret-right"></i>
+        <!-- <i class="fas fa-caret-right"></i> -->
       </div>
     </div>
 
     <a-scene vr-mode-ui="enabled: false">
       <a-assets>
-        <img id="01" src="../../static/image/001/001-05_2.jpg" />
-        <img id="02" src="../../static/image/001/001-09_1.jpg" />
-        <img id="03" src="../../static/image/001/001-07_1.jpg" />
-        <img id="icon-up" src="../../static/image/icon/icon_up.png" />
+        <img id="01" src="../../static/image/001/001-scene1.png" />
+        <img id="02" src="../../static/image/001/001-scene2.png" />
+        <img id="03" src="../../static/image/001/001-scene3.png" />
+        <img id="icon-up" src="../../static/image/icon/icon_up2.png" />
         <img id="circle-logo" src="../../static/image/circlelogo.png" />
         <img id="ring" src="../../static/image/ring.png" />
         <img id="icon-pos" src="../../static/image/icon/icon_pos.png" />
         <a-mixin
           id="fadeout"
-          animation="property: opacity; from: 1.0; to: 0.0; dur: 700; loop: false"
+          animation="property: opacity; from: 1.0; to: 0.0; dur: 500; loop: false"
         ></a-mixin>
 
         <a-mixin
           id="fadein"
-          animation="property: opacity; from: 0.0; to: 1.0; dur: 700; loop: false"
+          animation="property: opacity; from: 0.0; to: 1.0; dur: 500; loop: false"
         ></a-mixin>
         <a-mixin
           id="out"
@@ -157,15 +178,21 @@
           visible="true"
         ></a-mixin>
       </a-assets>
+      <a-image
+        src="#circle-logo"
+        position="0 -1 0"
+        scale="1.5 1.5 1.5"
+        rotation="270 0 0"
+      ></a-image>
       <a-entity id="scene1-obj">
-        <a-entity id="scene1-collider">
-          <a-box
+        <!-- <a-entity id="scene1-collider"> -->
+        <!-- <a-box
             id="collider01"
             class="collider-scene1"
             position="-4.3 0.3 -5"
             scale="1 2.3 1.5"
             rotation="0 -50 0"
-            material="alphaTest: 1"
+            material="alphaTest: 10"
             opacity="0.0"
             cursor-listener
           ></a-box>
@@ -175,7 +202,7 @@
             position="-1.7 0.3 -5"
             scale="1 2.3 1.5"
             rotation="0 -70 0"
-            material="alphaTest: 1"
+            material="alphaTest: 10"
             opacity="0.0"
             cursor-listener
           ></a-box>
@@ -185,7 +212,7 @@
             position="1 0.3 -5"
             scale="1 2 1"
             rotation="0 -90 0"
-            material="alphaTest: 1"
+            material="alphaTest: 10"
             opacity="0.0"
             cursor-listener
           ></a-box>
@@ -195,7 +222,7 @@
             position="-4 0.3 5"
             scale="1 4 2"
             rotation="0 -90 0"
-            material="alphaTest: 1"
+            material="alphaTest: 10"
             opacity="0.0"
             cursor-listener
           ></a-box>
@@ -205,12 +232,12 @@
             position="2 0.3 5"
             scale="1 4 2"
             rotation="0 -90 0"
-            material="alphaTest: 1"
+            material="alphaTest: 10"
             opacity="0.0"
             cursor-listener
-          ></a-box>
-        </a-entity>
-        <a-entity id="ring1">
+          ></a-box> -->
+        <!-- </a-entity> -->
+        <!-- <a-entity id="ring1">
           <a-entity
             id="ring-scene-1to2"
             class="collider-scene1"
@@ -229,45 +256,10 @@
             <a-image src="#icon-pos" rotation="0 100 0"></a-image>
             <a-box scale="2 2 2" opacity="0.0" id="ring-scene-box-1to3"></a-box>
           </a-entity>
-        </a-entity>
+        </a-entity> -->
       </a-entity>
-      <a-image
-        src="#circle-logo"
-        position="0 -1 0"
-        scale="1.5 1.5 1.5"
-        rotation="270 0 0"
-      ></a-image>
-
       <a-entity id="scene2-obj"></a-entity>
-      <a-entity id="ring2" mixin="out">
-        <a-entity
-          id="ring-scene-2to1"
-          class="collider-scene2"
-          position="-4 -1 0"
-          cursor-listener-scene
-        >
-          <a-image
-            src="#icon-pos"
-            rotation="0 90 0"
-            scale="0.8 0.8 0.8"
-          ></a-image>
-          <a-box scale="2 2 2" id="ring-scene-box-1to2" opacity="0.0"></a-box>
-        </a-entity>
-        <a-entity
-          id="ring-scene-2to3"
-          class="collider-scene2"
-          position="0 -0.9 -3"
-          cursor-listener-scene
-        >
-          <a-image
-            src="#icon-pos"
-            rotation="0 0 0"
-            scale="0.65 0.65 0.65"
-          ></a-image>
-          <a-box scale="1 2 1" id="ring-scene-box-1to3" opacity="0.0"></a-box>
-        </a-entity>
-      </a-entity>
-
+      <a-entity id="scene3-obj"></a-entity>
       <a-sky id="bg1" radius="10" src="#01" rotation="0 -100 0"></a-sky>
       <a-sky
         id="bg2"

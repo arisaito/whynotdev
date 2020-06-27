@@ -20,6 +20,7 @@ a {
   outline: none;
   &:hover {
     color: $color_black;
+    text-decoration: none;
   }
 }
 
@@ -105,7 +106,7 @@ a-scene {
     transform: translateX(-50%);
     text-align: center;
     font-weight: bold;
-    background: $color_white;
+    // background: $color_white;
     padding: 10px 20px;
     width: 100%;
     pointer-events: auto;
@@ -123,5 +124,10 @@ a-scene {
       display: inline;
       vertical-align: top;
     }
+  }
+}
+.statement {
+  &__txt {
+    text-align: left;
   }
 }
