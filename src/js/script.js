@@ -17,40 +17,13 @@ import {
 } from "./sceneCreate";
 
 let mobileFlag = false;
-let colliderScene1 = [];
-let colliderScene2 = [];
-let colliderScene3 = [];
 let cameraOuter;
 let roomUiRoomName;
 
-let ring1;
-let ringScene1to2;
-let ringScene1to3;
-let ringSceneBox1to2;
-let ringSceneBox1to3;
-// let ringScene1 = [];
 let scene1Obj;
-// let scene1ObjConts;
-
-let ring2;
-let ringScene2to1;
-let ringScene2to3;
-let ringSceneBox2to1;
-let ringSceneBox2to3;
-// let ringScene2 = [];
 let scene2Obj;
-// let scene2ObjConts;
-let iconPos2to1;
-let iconPos2to3;
-
-let ring3;
-let ringScene3to1;
-let ringScene3to2;
-// let ringScene3 = [];
 let scene3Obj;
-// let scene3ObjConts;
 
-let ringBox = [];
 let bg1;
 let bg2;
 let bg3;
@@ -236,8 +209,8 @@ const sceneManager = (fir, nex) => {
       el.removeEventListener("mouseenter", mouseEnter, false);
       el.removeEventListener("click", sceneSwitch, false);
     });
-    bg1.setAttribute("mixin", "fadeout");
     scene1Obj.innerHTML = "";
+    bg1.setAttribute("mixin", "fadeout");
   } else if (fir === 2) {
     console.log("2から");
     if (nex === 3) {
@@ -254,9 +227,8 @@ const sceneManager = (fir, nex) => {
       el.removeEventListener("mouseenter", mouseEnter, false);
       el.removeEventListener("click", sceneSwitch, false);
     });
-
-    bg2.setAttribute("mixin", "fadeout");
     scene2Obj.innerHTML = "";
+    bg2.setAttribute("mixin", "fadeout");
   } else if (fir === 3) {
     console.log("3から");
     if (nex === 2) {
@@ -275,15 +247,11 @@ const sceneManager = (fir, nex) => {
       el.removeEventListener("mouseenter", mouseEnter, false);
       el.removeEventListener("click", sceneSwitch, false);
     });
-    bg3.setAttribute("mixin", "fadeout");
     scene3Obj.innerHTML = "";
+    bg3.setAttribute("mixin", "fadeout");
   }
   if (nex === 1) {
     console.log("1だよ");
-    bg1.removeAttribute("mixin", "fadeout");
-    bg1.setAttribute("mixin", "fadein");
-    // ring1.removeAttribute("mixin", "out");
-    // ring1.setAttribute("mixin", "in");
     sceneReady1();
     roomUiRoomName.innerHTML = "Scene　1 / 3";
 
@@ -297,11 +265,11 @@ const sceneManager = (fir, nex) => {
       el.addEventListener("mouseleave", mouseLeave, false);
       el.addEventListener("click", clickEvent, false);
     });
+    bg1.removeAttribute("mixin", "fadeout");
+    bg1.setAttribute("mixin", "fadein");
   }
   if (nex === 2) {
     console.log("2だよ");
-    bg2.removeAttribute("mixin", "fadeout");
-    bg2.setAttribute("mixin", "fadein");
     sceneReady2();
     roomUiRoomName.innerHTML = "Scene　2 / 3";
 
@@ -315,14 +283,13 @@ const sceneManager = (fir, nex) => {
       el.addEventListener("mouseleave", mouseLeave, false);
       el.addEventListener("click", clickEvent, false);
     });
+    bg2.removeAttribute("mixin", "fadeout");
+    bg2.setAttribute("mixin", "fadein");
   }
   if (nex === 3) {
     console.log("3だよ");
-    bg3.removeAttribute("mixin", "fadeout");
-    bg3.setAttribute("mixin", "fadein");
     sceneReady3();
     roomUiRoomName.innerHTML = "Scene　3 / 3";
-
     ringScene3.forEach((el) => {
       el.addEventListener("mouseenter", mouseEnter, false);
       el.addEventListener("mouseleave", mouseLeave, false);
@@ -333,6 +300,8 @@ const sceneManager = (fir, nex) => {
       el.addEventListener("mouseleave", mouseLeave, false);
       el.addEventListener("click", clickEvent, false);
     });
+    bg3.removeAttribute("mixin", "fadeout");
+    bg3.setAttribute("mixin", "fadein");
   }
 };
 
