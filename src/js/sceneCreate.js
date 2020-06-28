@@ -1,4 +1,7 @@
 let aBox;
+let mark;
+let markRing;
+let markCircle;
 let ringBox = [];
 
 let ring1;
@@ -97,24 +100,47 @@ const sceneReady1 = () => {
     aBox.setAttribute("class", "collider-scene1");
     aBox.setAttribute("opacity", "0.0");
     aBox.setAttribute("material", "alphaTest: 10");
+
+    mark = document.createElement("a-entity");
+    markRing = document.createElement("a-ring");
+    markCircle = document.createElement("a-circle");
+    mark.appendChild(markRing);
+    mark.appendChild(markCircle);
+    markRing.setAttribute("radius-inner", 0.3);
+    markRing.setAttribute("radius-outer", 0.4);
+    markCircle.setAttribute("radius", 0.2);
+    mark.setAttribute("scale", "0.3 0.3 0.3");
+    mark.setAttribute("class", "mark");
+
     if (i === 0) {
       aBox.setAttribute("position", "-4.3 0.3 -5");
       aBox.setAttribute("scale", "1 2.3 1.5");
+      mark.setAttribute("position", "-3.7 -0.7 -5");
     } else if (i === 1) {
       aBox.setAttribute("position", "-1.7 0.3 -5");
       aBox.setAttribute("scale", "1 2.3 1.5");
+      mark.setAttribute("position", "-1 0 -5.5");
     } else if (i === 2) {
       aBox.setAttribute("position", "1 0.3 -5");
       aBox.setAttribute("scale", "1 2 1");
+      mark.setAttribute("position", "1.9 -0.2 -5");
     } else if (i === 3) {
       aBox.setAttribute("position", "-4 0.3 5");
       aBox.setAttribute("scale", "1 4 2");
+      mark.setAttribute("scale", "0.4 0.4 0.4");
+      mark.setAttribute("position", "-6 -0.7 5");
+      mark.setAttribute("rotation", "180 -30 0");
     } else if (i === 4) {
       aBox.setAttribute("position", "2 0.3 5");
       aBox.setAttribute("scale", "1 4 2");
+      mark.setAttribute("position", "1 0 5");
+      mark.setAttribute("rotation", "180 0 0");
     } else if (i === 5) {
       aBox.setAttribute("position", "4 0.5 3.5");
+      mark.setAttribute("position", "3.6 0.3 3.5");
+      mark.setAttribute("rotation", "180 30 0");
     }
+    scene1Obj.appendChild(mark);
     scene1Obj.appendChild(aBox);
     scene1ObjConts.push(aBox);
   }
@@ -184,15 +210,38 @@ const sceneReady2 = () => {
     aBox.setAttribute("class", "collider-scene2");
     aBox.setAttribute("opacity", "0.0");
     aBox.setAttribute("material", "alphaTest: 10");
+
+    mark = document.createElement("a-entity");
+    markRing = document.createElement("a-ring");
+    markCircle = document.createElement("a-circle");
+    mark.appendChild(markRing);
+    mark.appendChild(markCircle);
+    markRing.setAttribute("radius-inner", 0.3);
+    markRing.setAttribute("radius-outer", 0.4);
+    markCircle.setAttribute("radius", 0.2);
+    mark.setAttribute("scale", "0.3 0.3 0.3");
+    mark.setAttribute("class", "mark");
+
     if (i === 0) {
       aBox.setAttribute("position", "1 0 3");
+      mark.setAttribute("position", "0.5 -0.2 3");
+      mark.setAttribute("rotation", "180 0 0");
+      mark.setAttribute("scale", "0.23 0.23 0.23");
     } else if (i === 1) {
       aBox.setAttribute("position", "3.5 0 3");
+      mark.setAttribute("position", "2.7 0 3");
+      mark.setAttribute("rotation", "180 30 0");
+      mark.setAttribute("scale", "0.28 0.28 0.28");
     } else if (i === 2) {
       aBox.setAttribute("position", "5 0.4 1");
+      mark.setAttribute("position", "5 0.1 1.8");
+      mark.setAttribute("rotation", "180 90 0");
     } else if (i === 3) {
       aBox.setAttribute("position", "5 0.4 -2");
+      mark.setAttribute("position", "5 0.15 -1.3");
+      mark.setAttribute("rotation", "180 90 0");
     }
+    scene2Obj.appendChild(mark);
     scene2Obj.appendChild(aBox);
     scene2ObjConts.push(aBox);
   }
@@ -264,19 +313,41 @@ const sceneReady3 = () => {
     aBox.setAttribute("class", "collider-scene3");
     aBox.setAttribute("opacity", "0.0");
     aBox.setAttribute("material", "alphaTest: 10");
+
+    mark = document.createElement("a-entity");
+    markRing = document.createElement("a-ring");
+    markCircle = document.createElement("a-circle");
+    mark.appendChild(markRing);
+    mark.appendChild(markCircle);
+    markRing.setAttribute("radius-inner", 0.3);
+    markRing.setAttribute("radius-outer", 0.4);
+    markCircle.setAttribute("radius", 0.2);
+    mark.setAttribute("scale", "0.25 0.25 0.25");
+    mark.setAttribute("class", "mark");
+
     if (i === 0) {
       aBox.setAttribute("position", "-1.5 0 5");
+      mark.setAttribute("position", "-2 0 5");
+      mark.setAttribute("rotation", "180 0 0");
     } else if (i === 1) {
       aBox.setAttribute("position", "2.3 0 4");
       aBox.setAttribute("scale", "1 1.5 1");
+      mark.setAttribute("position", "2 -0.3 4.5");
+      mark.setAttribute("rotation", "180 40 0");
     } else if (i === 2) {
       aBox.setAttribute("position", "2 0.1 0.7");
+      mark.setAttribute("position", "2 -0.3 1.8");
+      mark.setAttribute("rotation", "180 70 0");
     } else if (i === 3) {
       aBox.setAttribute("position", "2 0.2 -2");
       aBox.setAttribute("scale", "1 1.5 1");
+      mark.setAttribute("position", "2 -0.2 -1.3");
+      mark.setAttribute("rotation", "0 -45 0");
     } else if (i === 4) {
       aBox.setAttribute("position", "0 0 -5");
+      mark.setAttribute("position", "0.4 -0.1 -5");
     }
+    scene3Obj.appendChild(mark);
     scene3Obj.appendChild(aBox);
     scene3ObjConts.push(aBox);
   }
