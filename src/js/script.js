@@ -285,10 +285,12 @@ const initDevice = () => {
 };
 
 const hideLoading = () => {
-  loading = document.getElementById("loading");
-  loadingTxt = document.getElementById("loading-txt");
-  loadingTxt.style.display = "none";
-  loading.classList.add("js-up");
+  document.querySelector("a-scene").addEventListener("loaded", function () {
+    loading = document.getElementById("loading");
+    loadingTxt = document.getElementById("loading-txt");
+    loadingTxt.style.display = "none";
+    loading.classList.add("js-up");
+  });
 };
 
 const firstModalClose = () => {
