@@ -1,5 +1,4 @@
 let aBox;
-
 let ringBox = [];
 
 let ring1;
@@ -38,7 +37,6 @@ let iconPos3to2;
 const sceneReady1 = () => {
   scene1ObjConts = [];
   scene1Obj = document.getElementById("scene1-obj");
-
   ring1 = document.createElement("a-entity");
   ring1.setAttribute("id", "ring1");
   scene1Obj.appendChild(ring1);
@@ -52,7 +50,6 @@ const sceneReady1 = () => {
 
   iconPos1to2 = document.createElement("a-ring");
   iconPos1to2.setAttribute("rotation", "270 90 0");
-  iconPos1to2.setAttribute("id", "ring-scene-box-1to2");
   iconPos1to2.setAttribute("color", "white");
   iconPos1to2.setAttribute("radius-inner", 0.2);
   iconPos1to2.setAttribute("radius-outer", 0.3);
@@ -74,7 +71,6 @@ const sceneReady1 = () => {
 
   iconPos1to3 = document.createElement("a-ring");
   iconPos1to3.setAttribute("rotation", "270 90 0");
-  iconPos1to3.setAttribute("id", "ring-scene-box-1to3");
   iconPos1to3.setAttribute("color", "white");
   iconPos1to3.setAttribute("radius-inner", 0.2);
   iconPos1to3.setAttribute("radius-outer", 0.3);
@@ -203,6 +199,7 @@ const sceneReady2 = () => {
 };
 
 const sceneReady3 = () => {
+  console.log("こちらシーンレディー3");
   scene3ObjConts = [];
   scene3Obj = document.getElementById("scene3-obj");
   ring3 = document.createElement("a-entity");
@@ -264,7 +261,7 @@ const sceneReady3 = () => {
     aBox.setAttribute("id", "collider0" + i);
     aBox.setAttribute("scale", "1 1.2 1");
     aBox.setAttribute("cursor-listener");
-    aBox.setAttribute("class", "collider-scene2");
+    aBox.setAttribute("class", "collider-scene3");
     aBox.setAttribute("opacity", "0.0");
     aBox.setAttribute("material", "alphaTest: 10");
     if (i === 0) {

@@ -20,6 +20,8 @@ let mobileFlag = false;
 let cameraOuter;
 let roomUiRoomName;
 
+let sceneFlagCount = 1;
+
 let scene1Obj;
 let scene2Obj;
 let scene3Obj;
@@ -72,83 +74,42 @@ const clickEvent = (e) => {
   console.log(e.target.id);
   console.log("click");
   // scene1
-  if (
-    e.target.id === scene1ObjConts[0].id &&
-    scene1ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/towatakaya/001.html";
-  } else if (
-    e.target.id === scene1ObjConts[1].id &&
-    scene1ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/moemitakano/001.html";
-  } else if (
-    e.target.id === scene1ObjConts[2].id &&
-    scene1ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/towatakaya/002.html";
-  } else if (
-    e.target.id === scene1ObjConts[3].id &&
-    scene1ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/moemitakano/002.html";
-  } else if (
-    e.target.id === scene1ObjConts[4].id &&
-    scene1ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/moemitakano/003.html";
-  } else if (
-    e.target.id === scene1ObjConts[5].id &&
-    scene1ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/towatakaya/003.html";
-    // scene2
-  } else if (
-    e.target.id === scene2ObjConts[0].id &&
-    scene2ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/moemitakano/004.html";
-  } else if (
-    e.target.id === scene2ObjConts[1].id &&
-    scene2ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/towatakaya/004.html";
-  } else if (
-    e.target.id === scene2ObjConts[2].id &&
-    scene2ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/towatakaya/005.html";
-  } else if (
-    e.target.id === scene2ObjConts[3].id &&
-    scene2ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/towatakaya/006.html";
-    // scene3
-  } else if (
-    e.target.id === scene3ObjConts[0].id &&
-    scene3ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/moemitakano/005.html";
-  } else if (
-    e.target.id === scene3ObjConts[1].id &&
-    scene3ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/towatakaya/007.html";
-  } else if (
-    e.target.id === scene3ObjConts[2].id &&
-    scene3ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/towatakaya/008.html";
-  } else if (
-    e.target.id === scene3ObjConts[3].id &&
-    scene3ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/moemitakano/006.html";
-  } else if (
-    e.target.id === scene3ObjConts[4].id &&
-    scene3ObjConts.indexOf(e.target) >= 0
-  ) {
-    location.href = "../../works/moemitakano/003.html";
+  if (sceneFlagCount === 1) {
+    if (e.target.id === scene1ObjConts[0].id) {
+      location.href = "../../works/towatakaya/001.html";
+    } else if (e.target.id === scene1ObjConts[1].id) {
+      location.href = "../../works/moemitakano/001.html";
+    } else if (e.target.id === scene1ObjConts[2].id) {
+      location.href = "../../works/towatakaya/002.html";
+    } else if (e.target.id === scene1ObjConts[3].id) {
+      location.href = "../../works/moemitakano/002.html";
+    } else if (e.target.id === scene1ObjConts[4].id) {
+      location.href = "../../works/moemitakano/003.html";
+    } else if (e.target.id === scene1ObjConts[5].id) {
+      location.href = "../../works/towatakaya/003.html";
+    }
+  } else if (sceneFlagCount === 2) {
+    if (e.target.id === scene2ObjConts[0].id) {
+      location.href = "../../works/moemitakano/004.html";
+    } else if (e.target.id === scene2ObjConts[1].id) {
+      location.href = "../../works/towatakaya/004.html";
+    } else if (e.target.id === scene2ObjConts[2].id) {
+      location.href = "../../works/towatakaya/005.html";
+    } else if (e.target.id === scene2ObjConts[3].id) {
+      location.href = "../../works/towatakaya/006.html";
+    }
+  } else if (sceneFlagCount === 3) {
+    if (e.target.id === scene3ObjConts[0].id) {
+      location.href = "../../works/moemitakano/005.html";
+    } else if (e.target.id === scene3ObjConts[1].id) {
+      location.href = "../../works/towatakaya/007.html";
+    } else if (e.target.id === scene3ObjConts[2].id) {
+      location.href = "../../works/towatakaya/008.html";
+    } else if (e.target.id === scene3ObjConts[3].id) {
+      location.href = "../../works/moemitakano/006.html";
+    } else if (e.target.id === scene3ObjConts[4].id) {
+      location.href = "../../works/towatakaya/009.html";
+    }
   }
 };
 
@@ -213,9 +174,9 @@ const sceneManager = (fir, nex) => {
     bg1.setAttribute("mixin", "fadeout");
   } else if (fir === 2) {
     console.log("2から");
-    if (nex === 3) {
-      cameraOuter.setAttribute("rotation", "0 -70 0");
-    }
+    // if (nex === 3) {
+    //   cameraOuter.setAttribute("rotation", "0 -70 0");
+    // }
     scene2ObjConts.forEach((el) => {
       el.removeAttribute("cursor-listener");
       el.removeEventListener("mouseenter", mouseEnter, false);
@@ -231,11 +192,11 @@ const sceneManager = (fir, nex) => {
     bg2.setAttribute("mixin", "fadeout");
   } else if (fir === 3) {
     console.log("3から");
-    if (nex === 2) {
-      cameraOuter.setAttribute("rotation", "0 140 0");
-    } else if (nex === 1) {
-      cameraOuter.setAttribute("rotation", "0 80 0");
-    }
+    // if (nex === 2) {
+    //   cameraOuter.setAttribute("rotation", "0 140 0");
+    // } else if (nex === 1) {
+    //   cameraOuter.setAttribute("rotation", "0 80 0");
+    // }
     scene3ObjConts.forEach((el) => {
       el.removeAttribute("cursor-listener");
       el.removeEventListener("mouseenter", mouseEnter, false);
@@ -252,6 +213,7 @@ const sceneManager = (fir, nex) => {
   }
   if (nex === 1) {
     console.log("1だよ");
+    sceneFlagCount = 1;
     sceneReady1();
     roomUiRoomName.innerHTML = "Scene　1 / 3";
 
@@ -270,9 +232,9 @@ const sceneManager = (fir, nex) => {
   }
   if (nex === 2) {
     console.log("2だよ");
+    sceneFlagCount = 2;
     sceneReady2();
     roomUiRoomName.innerHTML = "Scene　2 / 3";
-
     ringScene2.forEach((el) => {
       el.addEventListener("mouseenter", mouseEnter, false);
       el.addEventListener("mouseleave", mouseLeave, false);
@@ -288,6 +250,7 @@ const sceneManager = (fir, nex) => {
   }
   if (nex === 3) {
     console.log("3だよ");
+    sceneFlagCount = 3;
     sceneReady3();
     roomUiRoomName.innerHTML = "Scene　3 / 3";
     ringScene3.forEach((el) => {
@@ -304,8 +267,6 @@ const sceneManager = (fir, nex) => {
     bg3.setAttribute("mixin", "fadein");
   }
 };
-
-// const sceneReady2 = () =>
 
 const initDevice = () => {
   let regexp = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
