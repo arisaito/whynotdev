@@ -192,39 +192,39 @@ const clickEvent = (e) => {
   // scene1
   if (sceneFlagCount === 1) {
     if (e.target.id === scene1ObjConts[0].id) {
-      location.href = "../../works/towatakaya/001.html";
+      location.href = "./../works/towatakaya/001.html";
     } else if (e.target.id === scene1ObjConts[1].id) {
-      location.href = "../../works/moemitakano/001.html";
+      location.href = "./../works/moemitakano/001.html";
     } else if (e.target.id === scene1ObjConts[2].id) {
-      location.href = "../../works/towatakaya/002.html";
+      location.href = "./../works/towatakaya/002.html";
     } else if (e.target.id === scene1ObjConts[3].id) {
-      location.href = "../../works/moemitakano/002.html";
+      location.href = "./../works/moemitakano/002.html";
     } else if (e.target.id === scene1ObjConts[4].id) {
-      location.href = "../../works/moemitakano/003.html";
+      location.href = "./../works/moemitakano/003.html";
     } else if (e.target.id === scene1ObjConts[5].id) {
-      location.href = "../../works/towatakaya/003.html";
+      location.href = "./../works/towatakaya/003.html";
     }
   } else if (sceneFlagCount === 2) {
     if (e.target.id === scene2ObjConts[0].id) {
-      location.href = "../../works/moemitakano/004.html";
+      location.href = "./../works/moemitakano/004.html";
     } else if (e.target.id === scene2ObjConts[1].id) {
-      location.href = "../../works/towatakaya/004.html";
+      location.href = "./../works/towatakaya/004.html";
     } else if (e.target.id === scene2ObjConts[2].id) {
-      location.href = "../../works/towatakaya/005.html";
+      location.href = "./../works/towatakaya/005.html";
     } else if (e.target.id === scene2ObjConts[3].id) {
-      location.href = "../../works/towatakaya/006.html";
+      location.href = "./../works/towatakaya/006.html";
     }
   } else if (sceneFlagCount === 3) {
     if (e.target.id === scene3ObjConts[0].id) {
-      location.href = "../../works/moemitakano/005.html";
+      location.href = "./../works/moemitakano/005.html";
     } else if (e.target.id === scene3ObjConts[1].id) {
-      location.href = "../../works/towatakaya/007.html";
+      location.href = "./../works/towatakaya/007.html";
     } else if (e.target.id === scene3ObjConts[2].id) {
-      location.href = "../../works/towatakaya/008.html";
+      location.href = "./../works/towatakaya/008.html";
     } else if (e.target.id === scene3ObjConts[3].id) {
-      location.href = "../../works/moemitakano/006.html";
+      location.href = "./../works/moemitakano/006.html";
     } else if (e.target.id === scene3ObjConts[4].id) {
-      location.href = "../../works/towatakaya/009.html";
+      location.href = "./../works/towatakaya/009.html";
     }
   }
 };
