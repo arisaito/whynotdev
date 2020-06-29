@@ -156,12 +156,12 @@
 
     <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false">
       <a-assets>
-        <img id="01" src="./../static/image/001/001-scene1.jpg" />
-        <img id="02" src="./../static/image/001/001-scene2.jpg" />
-        <img id="03" src="./../static/image/001/001-scene3.jpg" />
+        <img id="01" src="./../static/image/001/red/001-scene1-red.jpg" />
+        <img id="02" src="./../static/image/001/red/001-scene2-red.jpg" />
+        <img id="03" src="./../static/image/001/red/001-scene3-red.jpg" />
         <img id="icon-up" src="./../static/image/icon/icon_up2.png" />
         <img id="circle-logo" src="./../static/image/circlelogo.png" />
-        <img id="icon-ring" src="./../static/image/icon/ring.png" />
+        <!-- <img id="icon-ring" src="./../static/image/icon/ring.png" /> -->
         <a-mixin
           id="fadeout"
           animation="property: opacity; from: 1.0; to: 0.0; dur: 800; loop: false"
@@ -174,10 +174,6 @@
           id="blink"
           animation="property: opacity; from: 1.0; to: 0.0; dur: 350; loop: true; easing: linear; dir: alternate"
         ></a-mixin>
-        <!-- <a-mixin
-          id="zoomim"
-          animation="property: zoom; from: 1; to: 3; dur: 1000; loop: false"
-        ></a-mixin> -->
         <a-mixin
           id="out"
           opacity="0.0"

@@ -56,58 +56,6 @@ let usageLink;
 let usage;
 let usageFlag = false;
 
-const getData = () => {
-  let n;
-  bg1 = document.getElementById("bg1");
-  bg2 = document.getElementById("bg2");
-  bg3 = document.getElementById("bg3");
-  scene1Obj = document.getElementById("scene1-obj");
-  scene2Obj = document.getElementById("scene2-obj");
-  scene3Obj = document.getElementById("scene3-obj");
-  roomUiRoomName = document.getElementById("room-ui__room-name");
-
-  if (window.location.search) {
-    n = window.location.search.substring(1, window.location.search.length);
-    firstModal = document.getElementById("first-modal");
-    firstModal.classList.add("is-fadeout");
-    if (n === "2") {
-      scene1Obj.innerHTML = "";
-      bg1.setAttribute("opacity", "0.0");
-      sceneFlagCount = 2;
-      sceneReady2();
-      roomUiRoomName.innerHTML = "Scene　2 / 3";
-      ringScene2.forEach((el) => {
-        el.addEventListener("mouseenter", sceneMouseEnter, false);
-        el.addEventListener("mouseleave", sceneMouseLeave, false);
-        el.addEventListener("click", sceneSwitch, false);
-      });
-      scene2ObjConts.forEach((el) => {
-        el.addEventListener("mouseenter", mouseEnter, false);
-        el.addEventListener("mouseleave", mouseLeave, false);
-        el.addEventListener("click", clickEvent, false);
-      });
-      bg2.removeAttribute("opacity", "1.0");
-    } else if (n === "3") {
-      scene1Obj.innerHTML = "";
-      bg1.setAttribute("opacity", "0.0");
-      sceneFlagCount = 3;
-      sceneReady3();
-      roomUiRoomName.innerHTML = "Scene　3 / 3";
-      ringScene3.forEach((el) => {
-        el.addEventListener("mouseenter", sceneMouseEnter, false);
-        el.addEventListener("mouseleave", sceneMouseLeave, false);
-        el.addEventListener("click", sceneSwitch, false);
-      });
-      scene3ObjConts.forEach((el) => {
-        el.addEventListener("mouseenter", mouseEnter, false);
-        el.addEventListener("mouseleave", mouseLeave, false);
-        el.addEventListener("click", clickEvent, false);
-      });
-      bg3.removeAttribute("opacity", "1.0");
-    }
-  }
-};
-
 const mouseEnter = (e) => {
   cursorImg = document.getElementById("cursor-img");
   console.log("mouseenter - " + e.target.id);
@@ -188,7 +136,6 @@ const sceneMouseLeave = (e) => {
 
 const clickEvent = (e) => {
   console.log(e.target.id);
-  console.log("click");
   // scene1
   if (sceneFlagCount === 1) {
     if (e.target.id === scene1ObjConts[0].id) {
@@ -231,7 +178,6 @@ const clickEvent = (e) => {
 
 const firstScene = () => {
   roomUiRoomName = document.getElementById("room-ui__room-name");
-  console.log("1だよ");
   sceneReady1();
   roomUiRoomName.innerHTML = "Scene　1 / 3";
   ringScene1.forEach((el) => {
@@ -244,6 +190,58 @@ const firstScene = () => {
     el.addEventListener("mouseleave", mouseLeave, false);
     el.addEventListener("click", clickEvent, false);
   });
+};
+
+const getData = () => {
+  let n;
+  bg1 = document.getElementById("bg1");
+  bg2 = document.getElementById("bg2");
+  bg3 = document.getElementById("bg3");
+  scene1Obj = document.getElementById("scene1-obj");
+  scene2Obj = document.getElementById("scene2-obj");
+  scene3Obj = document.getElementById("scene3-obj");
+  roomUiRoomName = document.getElementById("room-ui__room-name");
+
+  if (window.location.search) {
+    n = window.location.search.substring(1, window.location.search.length);
+    firstModal = document.getElementById("first-modal");
+    firstModal.classList.add("is-fadeout");
+    if (n === "2") {
+      scene1Obj.innerHTML = "";
+      bg1.setAttribute("opacity", "0.0");
+      sceneFlagCount = 2;
+      sceneReady2();
+      roomUiRoomName.innerHTML = "Scene　2 / 3";
+      ringScene2.forEach((el) => {
+        el.addEventListener("mouseenter", sceneMouseEnter, false);
+        el.addEventListener("mouseleave", sceneMouseLeave, false);
+        el.addEventListener("click", sceneSwitch, false);
+      });
+      scene2ObjConts.forEach((el) => {
+        el.addEventListener("mouseenter", mouseEnter, false);
+        el.addEventListener("mouseleave", mouseLeave, false);
+        el.addEventListener("click", clickEvent, false);
+      });
+      bg2.removeAttribute("opacity", "1.0");
+    } else if (n === "3") {
+      scene1Obj.innerHTML = "";
+      bg1.setAttribute("opacity", "0.0");
+      sceneFlagCount = 3;
+      sceneReady3();
+      roomUiRoomName.innerHTML = "Scene　3 / 3";
+      ringScene3.forEach((el) => {
+        el.addEventListener("mouseenter", sceneMouseEnter, false);
+        el.addEventListener("mouseleave", sceneMouseLeave, false);
+        el.addEventListener("click", sceneSwitch, false);
+      });
+      scene3ObjConts.forEach((el) => {
+        el.addEventListener("mouseenter", mouseEnter, false);
+        el.addEventListener("mouseleave", mouseLeave, false);
+        el.addEventListener("click", clickEvent, false);
+      });
+      bg3.removeAttribute("opacity", "1.0");
+    }
+  }
 };
 
 const sceneSwitch = (e) => {
@@ -275,7 +273,7 @@ const sceneManager = (fir, nex) => {
 
   mouseLeave();
   if (fir === 1) {
-    console.log("1から");
+    console.log("from 1");
     scene1ObjConts.forEach((el) => {
       el.removeAttribute("cursor-listener");
       el.removeEventListener("mouseenter", mouseEnter, false);
@@ -290,7 +288,7 @@ const sceneManager = (fir, nex) => {
     scene1Obj.innerHTML = "";
     bg1.setAttribute("mixin", "fadeout");
   } else if (fir === 2) {
-    console.log("2から");
+    console.log("from 2");
     // if (nex === 3) {
     //   cameraOuter.setAttribute("rotation", "0 -70 0");
     // }
@@ -308,7 +306,7 @@ const sceneManager = (fir, nex) => {
     scene2Obj.innerHTML = "";
     bg2.setAttribute("mixin", "fadeout");
   } else if (fir === 3) {
-    console.log("3から");
+    console.log("from 3");
     // if (nex === 2) {
     //   cameraOuter.setAttribute("rotation", "0 140 0");
     // } else if (nex === 1) {
@@ -329,7 +327,7 @@ const sceneManager = (fir, nex) => {
     bg3.setAttribute("mixin", "fadeout");
   }
   if (nex === 1) {
-    console.log("1だよ");
+    console.log("to 1");
     sceneFlagCount = 1;
     sceneReady1();
     roomUiRoomName.innerHTML = "Scene　1 / 3";
@@ -347,7 +345,7 @@ const sceneManager = (fir, nex) => {
     bg1.setAttribute("mixin", "fadein");
   }
   if (nex === 2) {
-    console.log("2だよ");
+    console.log("to 2");
     sceneFlagCount = 2;
     sceneReady2();
     roomUiRoomName.innerHTML = "Scene　2 / 3";
@@ -365,7 +363,7 @@ const sceneManager = (fir, nex) => {
     bg2.setAttribute("mixin", "fadein");
   }
   if (nex === 3) {
-    console.log("3だよ");
+    console.log("to 3");
     sceneFlagCount = 3;
     sceneReady3();
     roomUiRoomName.innerHTML = "Scene　3 / 3";
@@ -393,20 +391,18 @@ const initDevice = () => {
     windowWidth < windowHeight
   ) {
     mobileFlag = true;
-    console.log("📱");
   } else {
     mobileFlag = false;
-    console.log("💻");
   }
 };
 
 const hideLoading = () => {
-  document.querySelector("a-scene").addEventListener("loaded", function () {
-    loading = document.getElementById("loading");
-    loadingTxt = document.getElementById("loading-txt");
-    loadingTxt.style.display = "none";
-    loading.classList.add("js-up");
-  });
+  // document.querySelector("a-scene").addEventListener("loaded", function () {
+  loading = document.getElementById("loading");
+  loadingTxt = document.getElementById("loading-txt");
+  loadingTxt.style.display = "none";
+  loading.classList.add("js-up");
+  // });
 };
 
 const firstModalClose = () => {
@@ -505,7 +501,6 @@ const hamburgerController = () => {
       }
       if (i === 3) {
         usageFlag = true;
-        console.log("hi");
         usage.classList.remove("is-hidden");
         hamburgerFlag = true;
         hamburgerLine.forEach((el, i) => {
