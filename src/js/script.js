@@ -205,7 +205,8 @@ const getData = () => {
   if (window.location.search) {
     n = window.location.search.substring(1, window.location.search.length);
     firstModal = document.getElementById("first-modal");
-    firstModal.classList.add("is-fadeout");
+    firstModal.style.opacity = 0.0;
+    firstModal.style.pointerEvents = "none";
     if (n === "2") {
       scene1Obj.innerHTML = "";
       bg1.setAttribute("opacity", "0.0");
