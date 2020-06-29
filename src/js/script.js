@@ -18,6 +18,7 @@ import {
 
 let mobileFlag = false;
 let cameraOuter;
+let camera;
 let roomUiRoomName;
 
 let sceneFlagCount = 1;
@@ -25,6 +26,8 @@ let sceneFlagCount = 1;
 let scene1Obj;
 let scene2Obj;
 let scene3Obj;
+
+let iconpos;
 
 let bg1;
 let bg2;
@@ -59,8 +62,36 @@ const mouseEnter = (e) => {
   cursorImg.setAttribute("scale", "0.09 0.09 0.09");
   cursorImg.setAttribute(
     "animation",
-    "property: opacity; from: 1.0; to: 0.0; dur: 500; loop: true; easing: linear; dir: alternate"
+    "property: opacity; from: 1.0; to: 0.0; dur: 350; loop: true; easing: linear; dir: alternate"
   );
+};
+
+const sceneMouseEnter = (e) => {
+  cursorImg = document.getElementById("cursor-img");
+  cursorImg.setAttribute(
+    "animation",
+    "property: opacity; from: 1.0; to: 0.0; dur: 100; loop: false; "
+  );
+  console.log(e.target);
+  if (e.target.id === "ring-scene-box-1to2") {
+    iconpos = document.getElementById("icon-pos-1to2");
+    iconpos.setAttribute("mixin", "blink");
+  } else if (e.target.id === "ring-scene-box-1to3") {
+    iconpos = document.getElementById("icon-pos-1to3");
+    iconpos.setAttribute("mixin", "blink");
+  } else if (e.target.id === "ring-scene-box-2to1") {
+    iconpos = document.getElementById("icon-pos-2to1");
+    iconpos.setAttribute("mixin", "blink");
+  } else if (e.target.id === "ring-scene-box-2to3") {
+    iconpos = document.getElementById("icon-pos-2to3");
+    iconpos.setAttribute("mixin", "blink");
+  } else if (e.target.id === "ring-scene-box-3to1") {
+    iconpos = document.getElementById("icon-pos-3to1");
+    iconpos.setAttribute("mixin", "blink");
+  } else if (e.target.id === "ring-scene-box-3to2") {
+    iconpos = document.getElementById("icon-pos-3to2");
+    iconpos.setAttribute("mixin", "blink");
+  }
 };
 
 const mouseLeave = () => {
@@ -70,57 +101,88 @@ const mouseLeave = () => {
   cursorImg.setAttribute("opacity", 1.0);
 };
 
+const sceneMouseLeave = (e) => {
+  cursorImg = document.getElementById("cursor-img");
+  cursorImg.setAttribute(
+    "animation",
+    "property: opacity; from: 0.0; to: 1.0; dur: 100; loop: false; "
+  );
+  if (e.target.id === "ring-scene-box-1to2") {
+    iconpos = document.getElementById("icon-pos-1to2");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  } else if (e.target.id === "ring-scene-box-1to3") {
+    iconpos = document.getElementById("icon-pos-1to3");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  } else if (e.target.id === "ring-scene-box-2to1") {
+    iconpos = document.getElementById("icon-pos-2to1");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  } else if (e.target.id === "ring-scene-box-2to3") {
+    iconpos = document.getElementById("icon-pos-2to3");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  } else if (e.target.id === "ring-scene-box-3to1") {
+    iconpos = document.getElementById("icon-pos-3to1");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  } else if (e.target.id === "ring-scene-box-3to2") {
+    iconpos = document.getElementById("icon-pos-3to2");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  }
+};
+
 const clickEvent = (e) => {
   console.log(e.target.id);
-  console.log("click");
   // scene1
   if (sceneFlagCount === 1) {
     if (e.target.id === scene1ObjConts[0].id) {
-      location.href = "../../works/towatakaya/001.html";
+      location.href = "./../works/towatakaya/001.html";
     } else if (e.target.id === scene1ObjConts[1].id) {
-      location.href = "../../works/moemitakano/001.html";
+      location.href = "./../works/moemitakano/001.html";
     } else if (e.target.id === scene1ObjConts[2].id) {
-      location.href = "../../works/towatakaya/002.html";
+      location.href = "./../works/towatakaya/002.html";
     } else if (e.target.id === scene1ObjConts[3].id) {
-      location.href = "../../works/moemitakano/002.html";
+      location.href = "./../works/moemitakano/002.html";
     } else if (e.target.id === scene1ObjConts[4].id) {
-      location.href = "../../works/moemitakano/003.html";
+      location.href = "./../works/moemitakano/003.html";
     } else if (e.target.id === scene1ObjConts[5].id) {
-      location.href = "../../works/towatakaya/003.html";
+      location.href = "./../works/towatakaya/003.html";
     }
   } else if (sceneFlagCount === 2) {
     if (e.target.id === scene2ObjConts[0].id) {
-      location.href = "../../works/moemitakano/004.html";
+      location.href = "./../works/moemitakano/004.html";
     } else if (e.target.id === scene2ObjConts[1].id) {
-      location.href = "../../works/towatakaya/004.html";
+      location.href = "./../works/towatakaya/004.html";
     } else if (e.target.id === scene2ObjConts[2].id) {
-      location.href = "../../works/towatakaya/005.html";
+      location.href = "./../works/towatakaya/005.html";
     } else if (e.target.id === scene2ObjConts[3].id) {
-      location.href = "../../works/towatakaya/006.html";
+      location.href = "./../works/towatakaya/006.html";
     }
   } else if (sceneFlagCount === 3) {
     if (e.target.id === scene3ObjConts[0].id) {
-      location.href = "../../works/moemitakano/005.html";
+      location.href = "./../works/moemitakano/005.html";
     } else if (e.target.id === scene3ObjConts[1].id) {
-      location.href = "../../works/towatakaya/007.html";
+      location.href = "./../works/towatakaya/007.html";
     } else if (e.target.id === scene3ObjConts[2].id) {
-      location.href = "../../works/towatakaya/008.html";
+      location.href = "./../works/towatakaya/008.html";
     } else if (e.target.id === scene3ObjConts[3].id) {
-      location.href = "../../works/moemitakano/006.html";
+      location.href = "./../works/moemitakano/006.html";
     } else if (e.target.id === scene3ObjConts[4].id) {
-      location.href = "../../works/towatakaya/009.html";
+      location.href = "./../works/towatakaya/009.html";
     }
   }
 };
 
 const firstScene = () => {
   roomUiRoomName = document.getElementById("room-ui__room-name");
-  console.log("1だよ");
   sceneReady1();
   roomUiRoomName.innerHTML = "Scene　1 / 3";
   ringScene1.forEach((el) => {
-    el.addEventListener("mouseenter", mouseEnter, false);
-    el.addEventListener("mouseleave", mouseLeave, false);
+    el.addEventListener("mouseenter", sceneMouseEnter, false);
+    el.addEventListener("mouseleave", sceneMouseLeave, false);
     el.addEventListener("click", sceneSwitch, false);
   });
   scene1ObjConts.forEach((el) => {
@@ -128,6 +190,58 @@ const firstScene = () => {
     el.addEventListener("mouseleave", mouseLeave, false);
     el.addEventListener("click", clickEvent, false);
   });
+};
+
+const getData = () => {
+  let n;
+  bg1 = document.getElementById("bg1");
+  bg2 = document.getElementById("bg2");
+  bg3 = document.getElementById("bg3");
+  scene1Obj = document.getElementById("scene1-obj");
+  scene2Obj = document.getElementById("scene2-obj");
+  scene3Obj = document.getElementById("scene3-obj");
+  roomUiRoomName = document.getElementById("room-ui__room-name");
+
+  if (window.location.search) {
+    n = window.location.search.substring(1, window.location.search.length);
+    firstModal = document.getElementById("first-modal");
+    firstModal.classList.add("is-fadeout");
+    if (n === "2") {
+      scene1Obj.innerHTML = "";
+      bg1.setAttribute("opacity", "0.0");
+      sceneFlagCount = 2;
+      sceneReady2();
+      roomUiRoomName.innerHTML = "Scene　2 / 3";
+      ringScene2.forEach((el) => {
+        el.addEventListener("mouseenter", sceneMouseEnter, false);
+        el.addEventListener("mouseleave", sceneMouseLeave, false);
+        el.addEventListener("click", sceneSwitch, false);
+      });
+      scene2ObjConts.forEach((el) => {
+        el.addEventListener("mouseenter", mouseEnter, false);
+        el.addEventListener("mouseleave", mouseLeave, false);
+        el.addEventListener("click", clickEvent, false);
+      });
+      bg2.removeAttribute("opacity", "1.0");
+    } else if (n === "3") {
+      scene1Obj.innerHTML = "";
+      bg1.setAttribute("opacity", "0.0");
+      sceneFlagCount = 3;
+      sceneReady3();
+      roomUiRoomName.innerHTML = "Scene　3 / 3";
+      ringScene3.forEach((el) => {
+        el.addEventListener("mouseenter", sceneMouseEnter, false);
+        el.addEventListener("mouseleave", sceneMouseLeave, false);
+        el.addEventListener("click", sceneSwitch, false);
+      });
+      scene3ObjConts.forEach((el) => {
+        el.addEventListener("mouseenter", mouseEnter, false);
+        el.addEventListener("mouseleave", mouseLeave, false);
+        el.addEventListener("click", clickEvent, false);
+      });
+      bg3.removeAttribute("opacity", "1.0");
+    }
+  }
 };
 
 const sceneSwitch = (e) => {
@@ -152,13 +266,14 @@ const sceneManager = (fir, nex) => {
   bg1 = document.getElementById("bg1");
   bg2 = document.getElementById("bg2");
   bg3 = document.getElementById("bg3");
+  camera = document.getElementById("camera");
   scene1Obj = document.getElementById("scene1-obj");
   scene2Obj = document.getElementById("scene2-obj");
   scene3Obj = document.getElementById("scene3-obj");
 
   mouseLeave();
   if (fir === 1) {
-    console.log("1から");
+    console.log("from 1");
     scene1ObjConts.forEach((el) => {
       el.removeAttribute("cursor-listener");
       el.removeEventListener("mouseenter", mouseEnter, false);
@@ -167,13 +282,13 @@ const sceneManager = (fir, nex) => {
     });
     ringScene1.forEach((el) => {
       el.removeAttribute("cursor-listener-scene");
-      el.removeEventListener("mouseenter", mouseEnter, false);
+      el.removeEventListener("mouseenter", sceneMouseEnter, false);
       el.removeEventListener("click", sceneSwitch, false);
     });
     scene1Obj.innerHTML = "";
     bg1.setAttribute("mixin", "fadeout");
   } else if (fir === 2) {
-    console.log("2から");
+    console.log("from 2");
     // if (nex === 3) {
     //   cameraOuter.setAttribute("rotation", "0 -70 0");
     // }
@@ -185,13 +300,13 @@ const sceneManager = (fir, nex) => {
     });
     ringScene2.forEach((el) => {
       el.removeAttribute("cursor-listener-scene");
-      el.removeEventListener("mouseenter", mouseEnter, false);
+      el.removeEventListener("mouseenter", sceneMouseEnter, false);
       el.removeEventListener("click", sceneSwitch, false);
     });
     scene2Obj.innerHTML = "";
     bg2.setAttribute("mixin", "fadeout");
   } else if (fir === 3) {
-    console.log("3から");
+    console.log("from 3");
     // if (nex === 2) {
     //   cameraOuter.setAttribute("rotation", "0 140 0");
     // } else if (nex === 1) {
@@ -205,21 +320,20 @@ const sceneManager = (fir, nex) => {
     });
     ringScene3.forEach((el) => {
       el.removeAttribute("cursor-listener-scene");
-      el.removeEventListener("mouseenter", mouseEnter, false);
+      el.removeEventListener("mouseenter", sceneMouseEnter, false);
       el.removeEventListener("click", sceneSwitch, false);
     });
     scene3Obj.innerHTML = "";
     bg3.setAttribute("mixin", "fadeout");
   }
   if (nex === 1) {
-    console.log("1だよ");
+    console.log("to 1");
     sceneFlagCount = 1;
     sceneReady1();
     roomUiRoomName.innerHTML = "Scene　1 / 3";
-
     ringScene1.forEach((el) => {
-      el.addEventListener("mouseenter", mouseEnter, false);
-      el.addEventListener("mouseleave", mouseLeave, false);
+      el.addEventListener("mouseenter", sceneMouseEnter, false);
+      el.addEventListener("mouseleave", sceneMouseLeave, false);
       el.addEventListener("click", sceneSwitch, false);
     });
     scene1ObjConts.forEach((el) => {
@@ -231,13 +345,13 @@ const sceneManager = (fir, nex) => {
     bg1.setAttribute("mixin", "fadein");
   }
   if (nex === 2) {
-    console.log("2だよ");
+    console.log("to 2");
     sceneFlagCount = 2;
     sceneReady2();
     roomUiRoomName.innerHTML = "Scene　2 / 3";
     ringScene2.forEach((el) => {
-      el.addEventListener("mouseenter", mouseEnter, false);
-      el.addEventListener("mouseleave", mouseLeave, false);
+      el.addEventListener("mouseenter", sceneMouseEnter, false);
+      el.addEventListener("mouseleave", sceneMouseLeave, false);
       el.addEventListener("click", sceneSwitch, false);
     });
     scene2ObjConts.forEach((el) => {
@@ -249,13 +363,13 @@ const sceneManager = (fir, nex) => {
     bg2.setAttribute("mixin", "fadein");
   }
   if (nex === 3) {
-    console.log("3だよ");
+    console.log("to 3");
     sceneFlagCount = 3;
     sceneReady3();
     roomUiRoomName.innerHTML = "Scene　3 / 3";
     ringScene3.forEach((el) => {
-      el.addEventListener("mouseenter", mouseEnter, false);
-      el.addEventListener("mouseleave", mouseLeave, false);
+      el.addEventListener("mouseenter", sceneMouseEnter, false);
+      el.addEventListener("mouseleave", sceneMouseLeave, false);
       el.addEventListener("click", sceneSwitch, false);
     });
     scene3ObjConts.forEach((el) => {
@@ -277,20 +391,18 @@ const initDevice = () => {
     windowWidth < windowHeight
   ) {
     mobileFlag = true;
-    console.log("📱");
   } else {
     mobileFlag = false;
-    console.log("💻");
   }
 };
 
 const hideLoading = () => {
-  document.querySelector("a-scene").addEventListener("loaded", function () {
-    loading = document.getElementById("loading");
-    loadingTxt = document.getElementById("loading-txt");
-    loadingTxt.style.display = "none";
-    loading.classList.add("js-up");
-  });
+  // document.querySelector("a-scene").addEventListener("loaded", function () {
+  loading = document.getElementById("loading");
+  loadingTxt = document.getElementById("loading-txt");
+  loadingTxt.style.display = "none";
+  loading.classList.add("js-up");
+  // });
 };
 
 const firstModalClose = () => {
@@ -389,7 +501,6 @@ const hamburgerController = () => {
       }
       if (i === 3) {
         usageFlag = true;
-        console.log("hi");
         usage.classList.remove("is-hidden");
         hamburgerFlag = true;
         hamburgerLine.forEach((el, i) => {
@@ -403,6 +514,7 @@ const hamburgerController = () => {
 window.onload = () => {
   initDevice();
   firstScene();
+  getData();
   hideLoading();
   firstModalClose();
   navUsageController();
