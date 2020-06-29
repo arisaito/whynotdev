@@ -161,18 +161,23 @@
         <img id="03" src="../../static/image/001/001-scene3.jpg" />
         <img id="icon-up" src="../../static/image/icon/icon_up2.png" />
         <img id="circle-logo" src="../../static/image/circlelogo.png" />
-        <img id="ring" src="../../static/image/ring.png" />
-        <img id="icon-pos" src="../../static/image/icon/icon_pos.png" />
         <img id="icon-ring" src="../../static/image/icon/ring.png" />
         <a-mixin
           id="fadeout"
-          animation="property: opacity; from: 1.0; to: 0.0; dur: 500; loop: false"
+          animation="property: opacity; from: 1.0; to: 0.0; dur: 800; loop: false"
         ></a-mixin>
-
         <a-mixin
           id="fadein"
-          animation="property: opacity; from: 0.0; to: 1.0; dur: 500; loop: false"
+          animation="property: opacity; from: 0.0; to: 1.0; dur: 800; loop: false"
         ></a-mixin>
+        <a-mixin
+          id="blink"
+          animation="property: opacity; from: 1.0; to: 0.0; dur: 350; loop: true; easing: linear; dir: alternate"
+        ></a-mixin>
+        <!-- <a-mixin
+          id="zoomim"
+          animation="property: zoom; from: 1; to: 3; dur: 1000; loop: false"
+        ></a-mixin> -->
         <a-mixin
           id="out"
           opacity="0.0"
@@ -213,7 +218,13 @@
         opacity="0.0"
       ></a-sky>
       <a-entity class="camera-outer" id="camera-outer" position="0 0 0">
-        <a-entity camera look-controls wasd-controls="" position="0 0 0">
+        <a-entity
+          camera
+          look-controls
+          wasd-controls="false"
+          position="0 0 0"
+          id="camera"
+        >
           <a-image
             id="cursor-img"
             class="cursor-img"

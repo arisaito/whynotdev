@@ -18,6 +18,7 @@ import {
 
 let mobileFlag = false;
 let cameraOuter;
+let camera;
 let roomUiRoomName;
 
 let sceneFlagCount = 1;
@@ -25,6 +26,8 @@ let sceneFlagCount = 1;
 let scene1Obj;
 let scene2Obj;
 let scene3Obj;
+
+let iconpos;
 
 let bg1;
 let bg2;
@@ -53,14 +56,94 @@ let usageLink;
 let usage;
 let usageFlag = false;
 
+const getData = () => {
+  let n;
+  bg1 = document.getElementById("bg1");
+  bg2 = document.getElementById("bg2");
+  bg3 = document.getElementById("bg3");
+  scene1Obj = document.getElementById("scene1-obj");
+  scene2Obj = document.getElementById("scene2-obj");
+  scene3Obj = document.getElementById("scene3-obj");
+  roomUiRoomName = document.getElementById("room-ui__room-name");
+
+  if (window.location.search) {
+    n = window.location.search.substring(1, window.location.search.length);
+    firstModal = document.getElementById("first-modal");
+    firstModal.classList.add("is-fadeout");
+    if (n === "2") {
+      scene1Obj.innerHTML = "";
+      bg1.setAttribute("opacity", "0.0");
+      sceneFlagCount = 2;
+      sceneReady2();
+      roomUiRoomName.innerHTML = "Scene　2 / 3";
+      ringScene2.forEach((el) => {
+        el.addEventListener("mouseenter", sceneMouseEnter, false);
+        el.addEventListener("mouseleave", sceneMouseLeave, false);
+        el.addEventListener("click", sceneSwitch, false);
+      });
+      scene2ObjConts.forEach((el) => {
+        el.addEventListener("mouseenter", mouseEnter, false);
+        el.addEventListener("mouseleave", mouseLeave, false);
+        el.addEventListener("click", clickEvent, false);
+      });
+      bg2.removeAttribute("opacity", "1.0");
+    } else if (n === "3") {
+      scene1Obj.innerHTML = "";
+      bg1.setAttribute("opacity", "0.0");
+      sceneFlagCount = 3;
+      sceneReady3();
+      roomUiRoomName.innerHTML = "Scene　3 / 3";
+      ringScene3.forEach((el) => {
+        el.addEventListener("mouseenter", sceneMouseEnter, false);
+        el.addEventListener("mouseleave", sceneMouseLeave, false);
+        el.addEventListener("click", sceneSwitch, false);
+      });
+      scene3ObjConts.forEach((el) => {
+        el.addEventListener("mouseenter", mouseEnter, false);
+        el.addEventListener("mouseleave", mouseLeave, false);
+        el.addEventListener("click", clickEvent, false);
+      });
+      bg3.removeAttribute("opacity", "1.0");
+    }
+  }
+};
+
 const mouseEnter = (e) => {
   cursorImg = document.getElementById("cursor-img");
   console.log("mouseenter - " + e.target.id);
   cursorImg.setAttribute("scale", "0.09 0.09 0.09");
   cursorImg.setAttribute(
     "animation",
-    "property: opacity; from: 1.0; to: 0.0; dur: 500; loop: true; easing: linear; dir: alternate"
+    "property: opacity; from: 1.0; to: 0.0; dur: 350; loop: true; easing: linear; dir: alternate"
   );
+};
+
+const sceneMouseEnter = (e) => {
+  cursorImg = document.getElementById("cursor-img");
+  cursorImg.setAttribute(
+    "animation",
+    "property: opacity; from: 1.0; to: 0.0; dur: 100; loop: false; "
+  );
+  console.log(e.target);
+  if (e.target.id === "ring-scene-box-1to2") {
+    iconpos = document.getElementById("icon-pos-1to2");
+    iconpos.setAttribute("mixin", "blink");
+  } else if (e.target.id === "ring-scene-box-1to3") {
+    iconpos = document.getElementById("icon-pos-1to3");
+    iconpos.setAttribute("mixin", "blink");
+  } else if (e.target.id === "ring-scene-box-2to1") {
+    iconpos = document.getElementById("icon-pos-2to1");
+    iconpos.setAttribute("mixin", "blink");
+  } else if (e.target.id === "ring-scene-box-2to3") {
+    iconpos = document.getElementById("icon-pos-2to3");
+    iconpos.setAttribute("mixin", "blink");
+  } else if (e.target.id === "ring-scene-box-3to1") {
+    iconpos = document.getElementById("icon-pos-3to1");
+    iconpos.setAttribute("mixin", "blink");
+  } else if (e.target.id === "ring-scene-box-3to2") {
+    iconpos = document.getElementById("icon-pos-3to2");
+    iconpos.setAttribute("mixin", "blink");
+  }
 };
 
 const mouseLeave = () => {
@@ -68,6 +151,39 @@ const mouseLeave = () => {
   cursorImg.setAttribute("scale", "0.07 0.07 0.07");
   cursorImg.removeAttribute("animation");
   cursorImg.setAttribute("opacity", 1.0);
+};
+
+const sceneMouseLeave = (e) => {
+  cursorImg = document.getElementById("cursor-img");
+  cursorImg.setAttribute(
+    "animation",
+    "property: opacity; from: 0.0; to: 1.0; dur: 100; loop: false; "
+  );
+  if (e.target.id === "ring-scene-box-1to2") {
+    iconpos = document.getElementById("icon-pos-1to2");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  } else if (e.target.id === "ring-scene-box-1to3") {
+    iconpos = document.getElementById("icon-pos-1to3");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  } else if (e.target.id === "ring-scene-box-2to1") {
+    iconpos = document.getElementById("icon-pos-2to1");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  } else if (e.target.id === "ring-scene-box-2to3") {
+    iconpos = document.getElementById("icon-pos-2to3");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  } else if (e.target.id === "ring-scene-box-3to1") {
+    iconpos = document.getElementById("icon-pos-3to1");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  } else if (e.target.id === "ring-scene-box-3to2") {
+    iconpos = document.getElementById("icon-pos-3to2");
+    iconpos.removeAttribute("mixin");
+    iconpos.setAttribute("opacity", 1.0);
+  }
 };
 
 const clickEvent = (e) => {
@@ -119,8 +235,8 @@ const firstScene = () => {
   sceneReady1();
   roomUiRoomName.innerHTML = "Scene　1 / 3";
   ringScene1.forEach((el) => {
-    el.addEventListener("mouseenter", mouseEnter, false);
-    el.addEventListener("mouseleave", mouseLeave, false);
+    el.addEventListener("mouseenter", sceneMouseEnter, false);
+    el.addEventListener("mouseleave", sceneMouseLeave, false);
     el.addEventListener("click", sceneSwitch, false);
   });
   scene1ObjConts.forEach((el) => {
@@ -152,6 +268,7 @@ const sceneManager = (fir, nex) => {
   bg1 = document.getElementById("bg1");
   bg2 = document.getElementById("bg2");
   bg3 = document.getElementById("bg3");
+  camera = document.getElementById("camera");
   scene1Obj = document.getElementById("scene1-obj");
   scene2Obj = document.getElementById("scene2-obj");
   scene3Obj = document.getElementById("scene3-obj");
@@ -167,7 +284,7 @@ const sceneManager = (fir, nex) => {
     });
     ringScene1.forEach((el) => {
       el.removeAttribute("cursor-listener-scene");
-      el.removeEventListener("mouseenter", mouseEnter, false);
+      el.removeEventListener("mouseenter", sceneMouseEnter, false);
       el.removeEventListener("click", sceneSwitch, false);
     });
     scene1Obj.innerHTML = "";
@@ -185,7 +302,7 @@ const sceneManager = (fir, nex) => {
     });
     ringScene2.forEach((el) => {
       el.removeAttribute("cursor-listener-scene");
-      el.removeEventListener("mouseenter", mouseEnter, false);
+      el.removeEventListener("mouseenter", sceneMouseEnter, false);
       el.removeEventListener("click", sceneSwitch, false);
     });
     scene2Obj.innerHTML = "";
@@ -205,7 +322,7 @@ const sceneManager = (fir, nex) => {
     });
     ringScene3.forEach((el) => {
       el.removeAttribute("cursor-listener-scene");
-      el.removeEventListener("mouseenter", mouseEnter, false);
+      el.removeEventListener("mouseenter", sceneMouseEnter, false);
       el.removeEventListener("click", sceneSwitch, false);
     });
     scene3Obj.innerHTML = "";
@@ -216,10 +333,9 @@ const sceneManager = (fir, nex) => {
     sceneFlagCount = 1;
     sceneReady1();
     roomUiRoomName.innerHTML = "Scene　1 / 3";
-
     ringScene1.forEach((el) => {
-      el.addEventListener("mouseenter", mouseEnter, false);
-      el.addEventListener("mouseleave", mouseLeave, false);
+      el.addEventListener("mouseenter", sceneMouseEnter, false);
+      el.addEventListener("mouseleave", sceneMouseLeave, false);
       el.addEventListener("click", sceneSwitch, false);
     });
     scene1ObjConts.forEach((el) => {
@@ -236,8 +352,8 @@ const sceneManager = (fir, nex) => {
     sceneReady2();
     roomUiRoomName.innerHTML = "Scene　2 / 3";
     ringScene2.forEach((el) => {
-      el.addEventListener("mouseenter", mouseEnter, false);
-      el.addEventListener("mouseleave", mouseLeave, false);
+      el.addEventListener("mouseenter", sceneMouseEnter, false);
+      el.addEventListener("mouseleave", sceneMouseLeave, false);
       el.addEventListener("click", sceneSwitch, false);
     });
     scene2ObjConts.forEach((el) => {
@@ -254,8 +370,8 @@ const sceneManager = (fir, nex) => {
     sceneReady3();
     roomUiRoomName.innerHTML = "Scene　3 / 3";
     ringScene3.forEach((el) => {
-      el.addEventListener("mouseenter", mouseEnter, false);
-      el.addEventListener("mouseleave", mouseLeave, false);
+      el.addEventListener("mouseenter", sceneMouseEnter, false);
+      el.addEventListener("mouseleave", sceneMouseLeave, false);
       el.addEventListener("click", sceneSwitch, false);
     });
     scene3ObjConts.forEach((el) => {
@@ -403,6 +519,7 @@ const hamburgerController = () => {
 window.onload = () => {
   initDevice();
   firstScene();
+  getData();
   hideLoading();
   firstModalClose();
   navUsageController();

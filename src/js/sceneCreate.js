@@ -56,6 +56,7 @@ const sceneReady1 = () => {
   iconPos1to2.setAttribute("color", "white");
   iconPos1to2.setAttribute("radius-inner", 0.2);
   iconPos1to2.setAttribute("radius-outer", 0.3);
+  iconPos1to2.setAttribute("id", "icon-pos-1to2");
   ringScene1to2.appendChild(iconPos1to2);
 
   ringSceneBox1to2 = document.createElement("a-box");
@@ -77,6 +78,7 @@ const sceneReady1 = () => {
   iconPos1to3.setAttribute("color", "white");
   iconPos1to3.setAttribute("radius-inner", 0.2);
   iconPos1to3.setAttribute("radius-outer", 0.3);
+  iconPos1to3.setAttribute("id", "icon-pos-1to3");
   ringScene1to3.appendChild(iconPos1to3);
 
   ringSceneBox1to3 = document.createElement("a-box");
@@ -165,6 +167,7 @@ const sceneReady2 = () => {
   iconPos2to1.setAttribute("color", "white");
   iconPos2to1.setAttribute("radius-inner", 0.2);
   iconPos2to1.setAttribute("radius-outer", 0.3);
+  iconPos2to1.setAttribute("id", "icon-pos-2to1");
   ringScene2to1.appendChild(iconPos2to1);
 
   ringSceneBox2to1 = document.createElement("a-box");
@@ -187,6 +190,7 @@ const sceneReady2 = () => {
   iconPos2to3.setAttribute("color", "white");
   iconPos2to3.setAttribute("radius-inner", 0.2);
   iconPos2to3.setAttribute("radius-outer", 0.3);
+  iconPos2to3.setAttribute("id", "icon-pos-2to3");
   ringScene2to3.appendChild(iconPos2to3);
 
   ringSceneBox2to3 = document.createElement("a-box");
@@ -268,6 +272,7 @@ const sceneReady3 = () => {
   iconPos3to1.setAttribute("color", "white");
   iconPos3to1.setAttribute("radius-inner", 0.2);
   iconPos3to1.setAttribute("radius-outer", 0.3);
+  iconPos3to1.setAttribute("id", "icon-pos-3to1");
   ringScene3to1.appendChild(iconPos3to1);
 
   ringSceneBox3to1 = document.createElement("a-box");
@@ -290,6 +295,7 @@ const sceneReady3 = () => {
   iconPos3to2.setAttribute("color", "white");
   iconPos3to2.setAttribute("radius-inner", 0.14);
   iconPos3to2.setAttribute("radius-outer", 0.2);
+  iconPos3to2.setAttribute("id", "icon-pos-3to2");
   ringScene3to2.appendChild(iconPos3to2);
 
   ringSceneBox3to2 = document.createElement("a-box");
