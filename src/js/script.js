@@ -72,7 +72,6 @@ const sceneMouseEnter = (e) => {
     "animation",
     "property: opacity; from: 1.0; to: 0.0; dur: 100; loop: false; "
   );
-  console.log(e.target);
   if (e.target.id === "ring-scene-box-1to2") {
     iconpos = document.getElementById("icon-pos-1to2");
     iconpos.setAttribute("mixin", "blink");
@@ -109,26 +108,20 @@ const sceneMouseLeave = (e) => {
   );
   if (e.target.id === "ring-scene-box-1to2") {
     iconpos = document.getElementById("icon-pos-1to2");
-    iconpos.removeAttribute("mixin");
-    iconpos.setAttribute("opacity", 1.0);
   } else if (e.target.id === "ring-scene-box-1to3") {
     iconpos = document.getElementById("icon-pos-1to3");
-    iconpos.removeAttribute("mixin");
-    iconpos.setAttribute("opacity", 1.0);
   } else if (e.target.id === "ring-scene-box-2to1") {
     iconpos = document.getElementById("icon-pos-2to1");
-    iconpos.removeAttribute("mixin");
-    iconpos.setAttribute("opacity", 1.0);
   } else if (e.target.id === "ring-scene-box-2to3") {
     iconpos = document.getElementById("icon-pos-2to3");
-    iconpos.removeAttribute("mixin");
-    iconpos.setAttribute("opacity", 1.0);
   } else if (e.target.id === "ring-scene-box-3to1") {
     iconpos = document.getElementById("icon-pos-3to1");
-    iconpos.removeAttribute("mixin");
-    iconpos.setAttribute("opacity", 1.0);
   } else if (e.target.id === "ring-scene-box-3to2") {
     iconpos = document.getElementById("icon-pos-3to2");
+  }
+  if (iconpos === null) {
+    return;
+  } else {
     iconpos.removeAttribute("mixin");
     iconpos.setAttribute("opacity", 1.0);
   }
