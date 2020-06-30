@@ -252,7 +252,6 @@ const sceneReady2 = () => {
 };
 
 const sceneReady3 = () => {
-  console.log("こちらシーンレディー3");
   scene3ObjConts = [];
   scene3Obj = document.getElementById("scene3-obj");
   ring3 = document.createElement("a-entity");
