@@ -198,11 +198,12 @@ const getData = () => {
   if (window.location.search) {
     n = window.location.search.substring(1, window.location.search.length);
     firstModal = document.getElementById("first-modal");
-    firstModal.style.opacity = 0.0;
-    firstModal.style.pointerEvents = "none";
     if (n === "1") {
-      console.log("1");
+      firstModal.style.opacity = 0.0;
+      firstModal.style.pointerEvents = "none";
     } else if (n === "2") {
+      firstModal.style.opacity = 0.0;
+      firstModal.style.pointerEvents = "none";
       scene1Obj.innerHTML = "";
       bg1.setAttribute("opacity", "0.0");
       sceneFlagCount = 2;
@@ -220,6 +221,8 @@ const getData = () => {
       });
       bg2.removeAttribute("opacity", "1.0");
     } else if (n === "3") {
+      firstModal.style.opacity = 0.0;
+      firstModal.style.pointerEvents = "none";
       scene1Obj.innerHTML = "";
       bg1.setAttribute("opacity", "0.0");
       sceneFlagCount = 3;
