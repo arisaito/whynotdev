@@ -20,7 +20,7 @@
     />
 
     <title>Hidden Landscapes</title>
-    <script src="./../static/js/app.bundle.js"></script>
+    <script src="./../static/js/july2020.bundle.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap"
       rel="stylesheet"
@@ -165,16 +165,16 @@
       </div>
       <div class="room-ui__room-name">
         <p class="c-txt" id="room-ui__room-name">
-          Scene　1 / 3
+          Scene　1 / 2
         </p>
       </div>
     </div>
 
     <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false">
       <a-assets>
-        <img id="01" src="./../static/image/2020june/big/001-scene1-big.jpg" />
-        <img id="02" src="./../static/image/2020june/big/001-scene2-big.jpg" />
-        <img id="03" src="./../static/image/2020june/big/001-scene3-big.jpg" />
+        <img id="01" src="./../static/image/2020july/01-ph.jpg" />
+        <img id="02" src="./../static/image/2020july/02-ph.jpg" />
+        <!-- <img id="03" src="./../static/image/2020july/003.jpg" /> -->
         <img id="icon-up" src="./../static/image/icon/icon_up2.png" />
         <img id="circle-logo" src="./../static/image/circlelogo.png" />
         <a-mixin
@@ -212,22 +212,22 @@
       <a-light type="ambient"></a-light>
       <a-entity id="scene1-obj"> </a-entity>
       <a-entity id="scene2-obj"></a-entity>
-      <a-entity id="scene3-obj"></a-entity>
-      <a-sky id="bg1" radius="10" src="#01" rotation="0 -100 0"></a-sky>
+      <!-- <a-entity id="scene3-obj"></a-entity> -->
+      <a-sky id="bg1" radius="10" src="#01" rotation="0 -90 0"></a-sky>
       <a-sky
         id="bg2"
         radius="9.5"
         src="#02"
-        rotation="0 0 0"
+        rotation="0 100 0"
         opacity="0.0"
       ></a-sky>
-      <a-sky
+      <!-- <a-sky
         id="bg3"
         radius="9"
         src="#03"
         rotation="0 90 0"
         opacity="0.0"
-      ></a-sky>
+      ></a-sky> -->
       <a-entity class="camera-outer" id="camera-outer" position="0 0 0">
         <a-entity
           camera

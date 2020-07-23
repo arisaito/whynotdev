@@ -1,13 +1,14 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   entry: {
-    app: './src/js/script.js'
+    app: "./src/js/script.js",
+    july2020: "./src/js/2020july.js",
   },
   output: {
-    path: path.join(__dirname, 'build/static/js/'),
-    filename: '[name].bundle.js'
+    path: path.join(__dirname, "build/static/js/"),
+    filename: "[name].bundle.js",
   },
   module: {
     rules: [
@@ -15,24 +16,22 @@ module.exports = {
         test: /\.js$/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: [
-                '@babel/preset-env'
-              ]
-            }
-          }
-        ]
-      }
-    ]
+              presets: ["@babel/preset-env"],
+            },
+          },
+        ],
+      },
+    ],
   },
   devServer: {
     port: 2222,
-    publicPath: '/static/js/',
-    contentBase: path.join(__dirname, 'build'),
+    publicPath: "/static/js/",
+    contentBase: path.join(__dirname, "build"),
     watchContentBase: true,
     hot: true,
     inline: true,
-    open: true
-  }
-}
+    open: true,
+  },
+};
