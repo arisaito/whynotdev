@@ -58,7 +58,7 @@ let usageFlag = false;
 
 const mouseEnter = (e) => {
   cursorImg = document.getElementById("cursor-img");
-  console.log("mouseenter - " + e.target.id);
+  // console.log("mouseenter - " + e.target.id);
   cursorImg.setAttribute("scale", "0.09 0.09 0.09");
   cursorImg.setAttribute(
     "animation",
@@ -128,7 +128,7 @@ const sceneMouseLeave = (e) => {
 };
 
 const clickEvent = (e) => {
-  console.log(e.target.id);
+  // console.log(e.target.id);
   // scene1
   if (sceneFlagCount === 1) {
     if (e.target.id === scene1ObjConts[0].id) {
@@ -198,9 +198,12 @@ const getData = () => {
   if (window.location.search) {
     n = window.location.search.substring(1, window.location.search.length);
     firstModal = document.getElementById("first-modal");
-    firstModal.style.opacity = 0.0;
-    firstModal.style.pointerEvents = "none";
-    if (n === "2") {
+    if (n === "1") {
+      firstModal.style.opacity = 0.0;
+      firstModal.style.pointerEvents = "none";
+    } else if (n === "2") {
+      firstModal.style.opacity = 0.0;
+      firstModal.style.pointerEvents = "none";
       scene1Obj.innerHTML = "";
       bg1.setAttribute("opacity", "0.0");
       sceneFlagCount = 2;
@@ -218,6 +221,8 @@ const getData = () => {
       });
       bg2.removeAttribute("opacity", "1.0");
     } else if (n === "3") {
+      firstModal.style.opacity = 0.0;
+      firstModal.style.pointerEvents = "none";
       scene1Obj.innerHTML = "";
       bg1.setAttribute("opacity", "0.0");
       sceneFlagCount = 3;
@@ -239,7 +244,7 @@ const getData = () => {
 };
 
 const sceneSwitch = (e) => {
-  console.log(e.target.id);
+  // console.log(e.target.id);
   if (e.target.id === "ring-scene-box-1to2") {
     sceneManager(1, 2);
   } else if (e.target.id === "ring-scene-box-1to3") {
@@ -267,7 +272,7 @@ const sceneManager = (fir, nex) => {
 
   mouseLeave();
   if (fir === 1) {
-    console.log("from 1");
+    // console.log("from 1");
     scene1ObjConts.forEach((el) => {
       el.removeAttribute("cursor-listener");
       el.removeEventListener("mouseenter", mouseEnter, false);
@@ -282,7 +287,7 @@ const sceneManager = (fir, nex) => {
     scene1Obj.innerHTML = "";
     bg1.setAttribute("mixin", "fadeout");
   } else if (fir === 2) {
-    console.log("from 2");
+    // console.log("from 2");
     // if (nex === 3) {
     //   cameraOuter.setAttribute("rotation", "0 -70 0");
     // }
@@ -300,7 +305,7 @@ const sceneManager = (fir, nex) => {
     scene2Obj.innerHTML = "";
     bg2.setAttribute("mixin", "fadeout");
   } else if (fir === 3) {
-    console.log("from 3");
+    // console.log("from 3");
     // if (nex === 2) {
     //   cameraOuter.setAttribute("rotation", "0 140 0");
     // } else if (nex === 1) {
@@ -321,7 +326,7 @@ const sceneManager = (fir, nex) => {
     bg3.setAttribute("mixin", "fadeout");
   }
   if (nex === 1) {
-    console.log("to 1");
+    // console.log("to 1");
     sceneFlagCount = 1;
     sceneReady1();
     roomUiRoomName.innerHTML = "Scene　1 / 3";
@@ -339,7 +344,7 @@ const sceneManager = (fir, nex) => {
     bg1.setAttribute("mixin", "fadein");
   }
   if (nex === 2) {
-    console.log("to 2");
+    // console.log("to 2");
     sceneFlagCount = 2;
     sceneReady2();
     roomUiRoomName.innerHTML = "Scene　2 / 3";
@@ -357,7 +362,7 @@ const sceneManager = (fir, nex) => {
     bg2.setAttribute("mixin", "fadein");
   }
   if (nex === 3) {
-    console.log("to 3");
+    // console.log("to 3");
     sceneFlagCount = 3;
     sceneReady3();
     roomUiRoomName.innerHTML = "Scene　3 / 3";
