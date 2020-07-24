@@ -7,14 +7,14 @@ import "@fortawesome/fontawesome-free-solid";
 import {
   sceneReady1,
   sceneReady2,
-  sceneReady3,
+  // sceneReady3,
   ringScene1,
   ringScene2,
-  ringScene3,
+  // ringScene3,
   scene1ObjConts,
   scene2ObjConts,
-  scene3ObjConts,
-} from "./2020july-sceneCreate";
+  // scene3ObjConts,
+} from "./2020julySceneCreate";
 
 let mobileFlag = false;
 let cameraOuter;
@@ -199,7 +199,7 @@ const getData = () => {
   bg3 = document.getElementById("bg3");
   scene1Obj = document.getElementById("scene1-obj");
   scene2Obj = document.getElementById("scene2-obj");
-  scene3Obj = document.getElementById("scene3-obj");
+  // scene3Obj = document.getElementById("scene3-obj");
   roomUiRoomName = document.getElementById("room-ui__room-name");
 
   if (window.location.search) {
@@ -233,18 +233,18 @@ const getData = () => {
       scene1Obj.innerHTML = "";
       bg1.setAttribute("opacity", "0.0");
       sceneFlagCount = 3;
-      sceneReady3();
+      // sceneReady3();
       roomUiRoomName.innerHTML = "Scene　3 / 3";
-      ringScene3.forEach((el) => {
-        el.addEventListener("mouseenter", sceneMouseEnter, false);
-        el.addEventListener("mouseleave", sceneMouseLeave, false);
-        el.addEventListener("click", sceneSwitch, false);
-      });
-      scene3ObjConts.forEach((el) => {
-        el.addEventListener("mouseenter", mouseEnter, false);
-        el.addEventListener("mouseleave", mouseLeave, false);
-        el.addEventListener("click", clickEvent, false);
-      });
+      // ringScene3.forEach((el) => {
+      //   el.addEventListener("mouseenter", sceneMouseEnter, false);
+      //   el.addEventListener("mouseleave", sceneMouseLeave, false);
+      //   el.addEventListener("click", sceneSwitch, false);
+      // });
+      // scene3ObjConts.forEach((el) => {
+      //   el.addEventListener("mouseenter", mouseEnter, false);
+      //   el.addEventListener("mouseleave", mouseLeave, false);
+      //   el.addEventListener("click", clickEvent, false);
+      // });
       bg3.removeAttribute("opacity", "1.0");
     }
   }
@@ -275,7 +275,7 @@ const sceneManager = (fir, nex) => {
   camera = document.getElementById("camera");
   scene1Obj = document.getElementById("scene1-obj");
   scene2Obj = document.getElementById("scene2-obj");
-  scene3Obj = document.getElementById("scene3-obj");
+  // scene3Obj = document.getElementById("scene3-obj");
 
   mouseLeave();
   if (fir === 1) {
@@ -318,25 +318,25 @@ const sceneManager = (fir, nex) => {
     // } else if (nex === 1) {
     //   cameraOuter.setAttribute("rotation", "0 80 0");
     // }
-    scene3ObjConts.forEach((el) => {
-      el.removeAttribute("cursor-listener");
-      el.removeEventListener("mouseenter", mouseEnter, false);
-      el.removeEventListener("click", clickEvent, false);
-      mouseLeave();
-    });
-    ringScene3.forEach((el) => {
-      el.removeAttribute("cursor-listener-scene");
-      el.removeEventListener("mouseenter", sceneMouseEnter, false);
-      el.removeEventListener("click", sceneSwitch, false);
-    });
-    scene3Obj.innerHTML = "";
-    bg3.setAttribute("mixin", "fadeout");
+    // scene3ObjConts.forEach((el) => {
+    //   el.removeAttribute("cursor-listener");
+    //   el.removeEventListener("mouseenter", mouseEnter, false);
+    //   el.removeEventListener("click", clickEvent, false);
+    //   mouseLeave();
+    // });
+    // ringScene3.forEach((el) => {
+    //   el.removeAttribute("cursor-listener-scene");
+    //   el.removeEventListener("mouseenter", sceneMouseEnter, false);
+    //   el.removeEventListener("click", sceneSwitch, false);
+    // });
+    // scene3Obj.innerHTML = "";
+    // bg3.setAttribute("mixin", "fadeout");
   }
   if (nex === 1) {
     // console.log("to 1");
     sceneFlagCount = 1;
     sceneReady1();
-    roomUiRoomName.innerHTML = "Scene　1 / 3";
+    roomUiRoomName.innerHTML = "Scene　1 / 2";
     ringScene1.forEach((el) => {
       el.addEventListener("mouseenter", sceneMouseEnter, false);
       el.addEventListener("mouseleave", sceneMouseLeave, false);
@@ -354,7 +354,7 @@ const sceneManager = (fir, nex) => {
     // console.log("to 2");
     sceneFlagCount = 2;
     sceneReady2();
-    roomUiRoomName.innerHTML = "Scene　2 / 3";
+    roomUiRoomName.innerHTML = "Scene　2 / 2";
     ringScene2.forEach((el) => {
       el.addEventListener("mouseenter", sceneMouseEnter, false);
       el.addEventListener("mouseleave", sceneMouseLeave, false);
@@ -371,20 +371,20 @@ const sceneManager = (fir, nex) => {
   if (nex === 3) {
     // console.log("to 3");
     sceneFlagCount = 3;
-    sceneReady3();
-    roomUiRoomName.innerHTML = "Scene　3 / 3";
-    ringScene3.forEach((el) => {
-      el.addEventListener("mouseenter", sceneMouseEnter, false);
-      el.addEventListener("mouseleave", sceneMouseLeave, false);
-      el.addEventListener("click", sceneSwitch, false);
-    });
-    scene3ObjConts.forEach((el) => {
-      el.addEventListener("mouseenter", mouseEnter, false);
-      el.addEventListener("mouseleave", mouseLeave, false);
-      el.addEventListener("click", clickEvent, false);
-    });
-    bg3.removeAttribute("mixin", "fadeout");
-    bg3.setAttribute("mixin", "fadein");
+    // sceneReady3();
+    // roomUiRoomName.innerHTML = "Scene　3 / 3";
+    // ringScene3.forEach((el) => {
+    //   el.addEventListener("mouseenter", sceneMouseEnter, false);
+    //   el.addEventListener("mouseleave", sceneMouseLeave, false);
+    //   el.addEventListener("click", sceneSwitch, false);
+    // });
+    // scene3ObjConts.forEach((el) => {
+    //   el.addEventListener("mouseenter", mouseEnter, false);
+    //   el.addEventListener("mouseleave", mouseLeave, false);
+    //   el.addEventListener("click", clickEvent, false);
+    // });
+    // bg3.removeAttribute("mixin", "fadeout");
+    // bg3.setAttribute("mixin", "fadein");
   }
 };
 
